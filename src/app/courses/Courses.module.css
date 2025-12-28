@@ -1,0 +1,93 @@
+/* ===== Courses – Common ===== */
+
+.courseHero {
+  background: linear-gradient(135deg, #15b597, #0f766e);
+  color: white;
+  padding: 5.5rem 1.5rem;
+}
+
+.courseHeroGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.courseHero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.courseHero p {
+  font-size: 1.1rem;
+  max-width: 520px;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+
+.courseHeroImage {
+  position: relative;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+
+/* Highlights */
+.courseHighlights {
+  max-width: 1100px;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.highlight {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+}
+
+.highlight h3 {
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.highlight p {
+  margin-top: 0.4rem;
+  color: #475569;
+}
+
+/* Curriculum */
+.curriculum {
+  background: #f8fafc;
+  padding: 4.5rem 1.5rem;
+}
+
+.curriculumList {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 2;
+  font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .courseHeroGrid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .courseHero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .courseHighlights {
+    grid-template-columns: 1fr;
+  }
+}

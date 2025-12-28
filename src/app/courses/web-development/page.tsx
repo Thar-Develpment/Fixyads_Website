@@ -2,26 +2,26 @@ import styles from "../Courses.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function DigitalMarketingCourse() {
+export default function WebDevelopmentCourse() {
   return (
     <>
       <section className={styles.courseHero}>
         <div className={styles.courseHeroGrid}>
           <div>
-            <h1>Digital Marketing Course</h1>
+            <h1>Web Development Course</h1>
             <p>
-              Master SEO, Social Media, Ads & Analytics with live projects and
-              real-world training.
+              Become a full-stack developer by building real websites and
+              applications from scratch.
             </p>
             <Link href="/contact" className="primaryBtn">
-              Enroll Now
+              Start Learning
             </Link>
           </div>
 
           <div className={styles.courseHeroImage}>
             <Image
-              src="/courses/digital-marketing.png"
-              alt="Digital Marketing Course"
+              src="/courses/web-development.png"
+              alt="Web Development Course"
               fill
             />
           </div>
@@ -30,31 +30,31 @@ export default function DigitalMarketingCourse() {
 
       <div className={styles.courseHighlights}>
         <div className={styles.highlight}>
-          <h3>12+</h3>
-          <p>Modules</p>
+          <h3>HTML → React</h3>
+          <p>Frontend</p>
         </div>
         <div className={styles.highlight}>
-          <h3>6+</h3>
-          <p>Live Projects</p>
+          <h3>Node</h3>
+          <p>Backend</p>
         </div>
         <div className={styles.highlight}>
-          <h3>3</h3>
-          <p>Certifications</p>
+          <h3>5+</h3>
+          <p>Projects</p>
         </div>
         <div className={styles.highlight}>
-          <h3>100%</h3>
-          <p>Practical Training</p>
+          <h3>Job</h3>
+          <p>Focused</p>
         </div>
       </div>
 
       <section className={styles.curriculum}>
-        <h2 className="sectionTitle">What You’ll Learn</h2>
+        <h2 className="sectionTitle">Curriculum Overview</h2>
         <ul className={styles.curriculumList}>
-          <li>SEO & Content Marketing</li>
-          <li>Google Ads & Meta Ads</li>
-          <li>Social Media Marketing</li>
-          <li>Email & Automation</li>
-          <li>Analytics & Conversion Optimization</li>
+          <li>HTML, CSS, JavaScript</li>
+          <li>React & Next.js</li>
+          <li>Backend with Node / APIs</li>
+          <li>Database & Auth</li>
+          <li>Deployment & Performance</li>
         </ul>
       </section>
     </>
