@@ -16,7 +16,7 @@ export default function Home() {
       <div className={styles.servicebg}>
         <div className={styles.servicebg1}>
         {/* Services Section */}
-          <section className="section container">
+          <section className="section container" >
             <h2 className={styles.sectionTitleblack}><span style={{color: '#15b597'}}> Our Services </span></h2>
             <p className={styles.sectionSubtitleblack}>
               Comprehensive digital solutions to elevate your brand and drive measurable growth.

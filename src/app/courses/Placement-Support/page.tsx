@@ -12,7 +12,7 @@ export default function PlacementSupport() {
               We don’t just teach skills — we help you land your first job with
               structured placement support.
             </p>
-            <Link href="/contact" className="primaryBtn">
+            <Link href="/contact" className="btn btn-primary">
               Get Career Guidance
             </Link>
           </div>
@@ -39,14 +39,33 @@ export default function PlacementSupport() {
       </div>
 
       <section className={styles.curriculum}>
-        <h2 className="sectionTitle">Placement Assistance Includes</h2>
-        <ul className={styles.curriculumList}>
-          <li>Resume & Portfolio Building</li>
-          <li>Interview Preparation</li>
-          <li>Mock Interviews</li>
-          <li>Job Referrals</li>
-          <li>Career Mentorship</li>
-        </ul>
+        <h2 style={{color:'#119c90'}}>What You’ll Learn</h2>
+
+        <div className={styles.curriculumGrid}>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Resume & Portfolio Building</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Interview Preparation</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Mock Interviews</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Job Referrals</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Career Mentorship</p>
+          </div>
+        </div>
+        <div className="text-center" style={{ marginTop: '3rem',}}>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+        </div>
       </section>
     </>
   );

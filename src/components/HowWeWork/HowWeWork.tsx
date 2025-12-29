@@ -9,7 +9,7 @@ export default function HowWeWork() {
       <div className={styles.container}>
         {/* Left Image */}
         <div>
-          <h2 className={styles.title}><span style={{color: 'var(--primary)'}}>How We Work</span></h2>
+          <h2 className={styles.title}><span style={{color: 'white'}}>How We Work</span></h2>
           <div className={styles.imageWrapper}>
             <img
               src="/Banner/banner.png"
@@ -23,27 +23,27 @@ export default function HowWeWork() {
         {/* Steps */}
         <div className={styles.timeline}>
           <div className={styles.step}>
-            <div className={styles.circle}>📋</div>
+            <div className={styles.circle}>01</div>
             <div className={styles.content}>
-              <span className={styles.stepNo}>01</span>
+              {/* <span className={styles.stepNo}>01</span> */}
               <h3>Research</h3>
               <p>We deeply understand your business, audience, and goals.</p>
             </div>
           </div>
 
           <div className={styles.step}>
-            <div className={styles.circle}>♟️</div>
+            <div className={styles.circle}>02</div>
             <div className={styles.content}>
-              <span className={styles.stepNo}>02</span>
+              {/* <span className={styles.stepNo}>02</span> */}
               <h3>Strategize</h3>
               <p>Customized strategies crafted to maximize growth.</p>
             </div>
           </div>
 
           <div className={styles.step}>
-            <div className={styles.circle}>🚀</div>
+            <div className={styles.circle}>03</div>
             <div className={styles.content}>
-              <span className={styles.stepNo}>03</span>
+              {/* <span className={styles.stepNo}>03</span> */}
               <h3>Launch & Optimize</h3>
               <p>We execute, monitor, and optimize for real results.</p>
             </div>

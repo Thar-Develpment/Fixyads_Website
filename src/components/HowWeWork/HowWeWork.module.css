@@ -1,6 +1,6 @@
 .wrapper {
   padding: 50px 0px;
-  background: #f9fafb;
+  background: linear-gradient(135deg, #0f766e, #15b597, #148f85);
 }
 
 .title {
@@ -79,13 +79,14 @@
 .circle {
   width: 54px;
   height: 54px;
-  background: #0b2545;
+  background-image: linear-gradient(to top,  #ffa560, #ff7f2a);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  color: #ffcc00;
+  color: #fff;
+  line-height: 1;
   z-index: 2;
 }
 
@@ -96,20 +97,20 @@
 .stepNo {
   font-size: 42px;
   font-weight: 300;
-  color: #474c52;
+  color: #ffffff;
   line-height: 1;
 }
 
 .step h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #0f172a;
+  color: #ffffff;
   margin: 6px 0;
 }
 
 .step p {
   font-size: 15px;
-  color: #1b2129;
+  color: #e1e1e1;
   line-height: 1.6;
   max-width: 360px;
 }

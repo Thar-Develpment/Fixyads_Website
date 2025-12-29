@@ -13,14 +13,14 @@ export default function WebDevelopmentCourse() {
               Become a full-stack developer by building real websites and
               applications from scratch.
             </p>
-            <Link href="/contact" className="primaryBtn">
+            <Link href="/contact" className="btn btn-primary">
               Start Learning
             </Link>
           </div>
 
           <div className={styles.courseHeroImage}>
             <Image
-              src="/courses/web-development.png"
+              src="/Courses/web-development.png"
               alt="Web Development Course"
               fill
             />
@@ -48,14 +48,33 @@ export default function WebDevelopmentCourse() {
       </div>
 
       <section className={styles.curriculum}>
-        <h2 className="sectionTitle">Curriculum Overview</h2>
-        <ul className={styles.curriculumList}>
-          <li>HTML, CSS, JavaScript</li>
-          <li>React & Next.js</li>
-          <li>Backend with Node / APIs</li>
-          <li>Database & Auth</li>
-          <li>Deployment & Performance</li>
-        </ul>
+        <h2 style={{color:'#119c90'}}>What You’ll Learn</h2>
+
+        <div className={styles.curriculumGrid}>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>HTML, CSS, JavaScript</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>React & Next.js</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Backend with Node / APIs</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Database & Auth</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Deployment & Performance</p>
+          </div>
+        </div>
+        <div className="text-center" style={{ marginTop: '3rem',}}>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+        </div>
       </section>
     </>
   );

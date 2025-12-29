@@ -106,6 +106,37 @@ export default function SocialMediaMarketingPage() {
         </div>
       </section>
 
+
+      <section className={styles.curriculum}>
+        <h2 style={{color:'#119c90'}}>What You’ll Learn</h2>
+
+        <div className={styles.curriculumGrid}>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>SEO & Content Marketing</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Google Ads & Meta Ads</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Social Media Marketing</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Email Marketing & Automation</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Analytics & Conversion Optimization</p>
+          </div>
+        </div>
+        <div className="text-center" style={{ marginTop: '3rem',}}>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className={styles.cta}>
         <div className={styles.container}>

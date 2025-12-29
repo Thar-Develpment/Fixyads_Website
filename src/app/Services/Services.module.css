@@ -482,3 +482,59 @@
     margin-top: 3rem;
   }
 }
+
+/* ===== Curriculum – Improved ===== */
+
+.curriculum {
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  padding: 4.5rem 1.5rem;
+}
+
+.curriculumGrid {
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.curriculumItem {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: white;
+  padding: 1.2rem 1.4rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.curriculumItem span {
+  background: linear-gradient(135deg, #15b597, #0f766e);
+  color: white;
+  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.curriculumItem p {
+  font-size: 1.05rem;
+  color: #334155;
+  margin: 0;
+}
+
+.curriculumItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .curriculumGrid {
+    grid-template-columns: 1fr;
+  }
+}

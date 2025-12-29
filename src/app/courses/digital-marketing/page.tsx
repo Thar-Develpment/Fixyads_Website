@@ -13,14 +13,14 @@ export default function DigitalMarketingCourse() {
               Master SEO, Social Media, Ads & Analytics with live projects and
               real-world training.
             </p>
-            <Link href="/contact" className="primaryBtn">
+            <Link href="/contact" className="btn btn-primary">
               Enroll Now
             </Link>
           </div>
 
           <div className={styles.courseHeroImage}>
             <Image
-              src="/courses/Digital-marketing.png"
+              src="/Courses/Digital-marketing.png"
               alt="Digital Marketing Course"
               fill
             />
@@ -48,14 +48,33 @@ export default function DigitalMarketingCourse() {
       </div>
 
       <section className={styles.curriculum}>
-        <h2 className="sectionTitle">What You’ll Learn</h2>
-        <ul className={styles.curriculumList}>
-          <li>SEO & Content Marketing</li>
-          <li>Google Ads & Meta Ads</li>
-          <li>Social Media Marketing</li>
-          <li>Email & Automation</li>
-          <li>Analytics & Conversion Optimization</li>
-        </ul>
+        <h2 style={{color:'#119c90'}}>What You’ll Learn</h2>
+
+        <div className={styles.curriculumGrid}>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>SEO & Content Marketing</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Google Ads & Meta Ads</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Social Media Marketing</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Email Marketing & Automation</p>
+          </div>
+          <div className={styles.curriculumItem}>
+            <span>✓</span>
+            <p>Analytics & Conversion Optimization</p>
+          </div>
+        </div>
+        <div className="text-center" style={{ marginTop: '3rem',}}>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+        </div>
       </section>
     </>
   );
