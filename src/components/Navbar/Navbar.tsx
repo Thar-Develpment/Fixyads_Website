@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './Navbar.module.css';
+import { useState } from 'react';
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.navContainer}>
@@ -13,10 +18,13 @@ const Navbar = () => {
           />
         </Link>
 
-        <nav className={styles.navLinks}>
-          <Link href="/" className={styles.navLink}>Home</Link>
+        {/* NAV LINKS */}
+        <nav className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
+          <Link href="/" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
 
-          {/* Services Dropdown */}
+          {/* Services */}
           <div className={styles.dropdown}>
             <span className={styles.navLink}>Services ▾</span>
             <div className={styles.dropdownMenu}>
@@ -24,12 +32,12 @@ const Navbar = () => {
               <Link href="/Services/social-media-marketing">SMM</Link>
               <Link href="/Services/content-branding">Content & Branding</Link>
               <Link href="/Services/web-development">Web Development</Link>
-              <Link href="/Services/influencer-marketing">Influencer Marketing</Link>            
-              <Link href="/Services/Content-marketing">Content Marketing</Link>  
+              <Link href="/Services/influencer-marketing">Influencer Marketing</Link>
+              <Link href="/Services/Content-marketing">Content Marketing</Link>
             </div>
           </div>
 
-          {/* Courses Dropdown */}
+          {/* Courses */}
           <div className={styles.dropdown}>
             <span className={styles.navLink}>Courses ▾</span>
             <div className={styles.dropdownMenu}>
@@ -39,16 +47,21 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Link href="/about" className={styles.navLink}>About</Link>
-        </nav>
+          <Link href="/about" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
 
-        <nav>
           <Link href="/contact" className="btn btn-primary">
             Get Free Audit
           </Link>
         </nav>
 
-        <button className={styles.mobileMenuBtn} aria-label="Menu">
+        {/* MOBILE BUTTON */}
+        <button
+          className={styles.mobileMenuBtn}
+          aria-label="Menu"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           ☰
         </button>
       </div>

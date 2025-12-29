@@ -84,7 +84,7 @@ export default function Home() {
 
 
             <div className="text-center" style={{ marginTop: '3rem' }}>
-              <Link href="/services" className="btn btn-primary">View All Services</Link>
+              <Link href="/contact" className="btn btn-primary">Contact us</Link>
             </div>
           </section>
         </div>
@@ -101,7 +101,7 @@ export default function Home() {
       <StatsBar />
 
       {/* Testimonials Section */}
-      <section className="section container">
+      <section className="section container" style={{margin: '0px 15px' }}>
         <h2 className={styles.sectionTitleblack}>What Our Clients Say</h2>
         <p className={styles.sectionSubtitleblack}>
           Trusted by businesses and students alike.

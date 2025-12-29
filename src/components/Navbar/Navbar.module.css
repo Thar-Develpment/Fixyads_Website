@@ -1,187 +1,120 @@
- .header {
-    /* STICKY POSITIONING */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    
-    /* Ensure the solid background is white or transparent */
-    background-color: transparent; 
-    
-    /* GLASS EFFECT (Translucent White) */
-    background: rgba(255, 255, 255, 0.75); /* High opacity white */
-    backdrop-filter: blur(15px);
-    
-    /* TEXT COLOR */
-    color: black; 
-    
-    /* BORDER/SHADOW */
-    border: 1px solid rgba(255, 255, 255, 0.5); 
+/* ================= HEADER ================= */
 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    
-    /* PADDING & MARGIN */
-    padding: 0.5rem 0.5rem; 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
 }
 
 .navContainer {
-    /* LAYOUT */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* CENTERING & CONSTRAINTS */
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
-.logo {
-    /* TYPOGRAPHY */
-    font-size: 1.5rem;
-    font-weight: 800;
-    /* Use 700 or 800 for strong logo */
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    line-height: 1;
-    /* Ensures no extra space above/below */
-    cursor: pointer;
-    /* Suggests it's often a link/home button */
+/* ================= LOGO ================= */
+
+.logoImage {
+  height: 50px;
+  width: auto;
+  display: block;
 }
+
+/* ================= NAV ================= */
 
 .navLinks {
-    /* LAYOUT */
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    /* ACCESSIBILITY */
-    list-style: none;
-    /* Good practice if using an actual <ul> */
-    padding: 0;
-    margin: 0;
+  display: flex;            /* ✅ desktop visible */
+  gap: 2rem;
+  align-items: center;
 }
 
 .navLink {
-    /* TYPOGRAPHY & INTERACTION */
-    font-weight: 500;
-    color: #424242d1;
-    text-decoration: none;
-    /* Ensure it looks like a link if it's an anchor tag */
-    transition: color 0.2s ease-in-out;
-    /* Add transition easing for smoothness */
-    cursor: pointer;
+  font-weight: 500;
+  color: #424242d1;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-
-.navLink:hover,
-.navLink:focus,
-.nav {
-    /* Include :focus for keyboard navigation */
-    color: var(--accent);
-    transform: scale(1.1);
-    outline: none;
-    /* Remove default focus outline if you provide a custom one */
+.navLink:hover {
+  color: var(--accent);
 }
 
-.mobileMenuBtn {
-    /* BASE STYLE */
-    display: none;
-    /* Hidden by default */
-    background: none;
-    border: none;
-    font-size: 1.75rem;
-    /* Slightly larger for easier tap target */
-    line-height: 1;
-    cursor: pointer;
-    color: var(--foreground);
-    padding: 0.25rem;
-    /* Add padding for a better clickable area */
-    transition: color 0.2s;
-}
+/* ================= DROPDOWN ================= */
 
-.mobileMenuBtn:hover {
-    color: var(--primary);
-}
-
-/* --- MEDIA QUERIES --- */
-
-@media (max-width: 768px) {
-    .navLinks {
-        /* Hide the standard menu */
-        display: none;
-        visibility: hidden;
-        /* Use both for better control */
-    }
-
-    /* Example of what the mobile menu should look like when active */
-    .navLinks.active {
-        /* This is the typical mobile overlay/dropdown state */
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        /* Position right below the header */
-        left: 0;
-        width: 100%;
-        background-color: white;
-        /* Ensure it covers content */
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        padding: 1rem var(--container-padding);
-        z-index: 999;
-    }
-
-    .mobileMenuBtn {
-        /* Show the button */
-        display: block;
-    }
-}
-
-.logoImage {
-    /* Adjust these values to fit perfectly in your header */
-    height: 50px; 
-    width: auto;
-    display: block; /* Ensures proper sizing */
-}
-
-/* Dropdown wrapper */
 .dropdown {
   position: relative;
 }
 
-/* Dropdown menu */
 .dropdownMenu {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
+  background: white;
   min-width: 220px;
-  padding: 0.75rem 0;
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   display: none;
-  z-index: 999;
 }
 
-/* Dropdown links */
 .dropdownMenu a {
   display: block;
   padding: 0.6rem 1.2rem;
-  color: #333;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: background 0.2s ease;
 }
 
-.dropdownMenu a:hover {
-  background: #f5f5f5;
-  color: var(--accent);
-}
-
-/* Show on hover */
 .dropdown:hover .dropdownMenu {
   display: block;
 }
 
-/* Cursor fix */
-.dropdown > span {
+/* ================= MOBILE ================= */
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
   cursor: pointer;
+}
+
+/* MOBILE RULES */
+@media (max-width: 768px) {
+
+  .mobileMenuBtn {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;           /* ❌ hidden by default */
+  }
+
+  .active {
+    display: flex;           /* ✅ opens instantly */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  /* Mobile dropdown: tap-friendly */
+  .dropdownMenu {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown:focus-within .dropdownMenu {
+    display: block;
+  }
 }

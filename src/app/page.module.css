@@ -40,7 +40,7 @@
   padding: 5rem 0;
   text-align: center;
   border-radius: 20px;
-  margin: 4rem auto;
+  margin: 2rem auto;
 }
 
 .ctaTitle {
@@ -88,6 +88,7 @@
 
 .servicebg{
   background-image: white;
+  margin: 0px 15px;
 }
 
 .servicebg{
@@ -95,6 +96,7 @@
     /* background-image: linear-gradient(to top,  #43a593, #15b597); */
   background-color: white;
 }
+
 
 .courses{
   background-image: linear-gradient(to top, #ffffff, #ffffff );
@@ -119,5 +121,78 @@
   user-select: none;
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
+}
+
+/* =============================== */
+/* RESPONSIVE SERVICES SECTION */
+/* =============================== */
+
+/* Headings scale properly */
+.sectionTitleblack,
+.sectionTitle {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+/* Subtitle scales */
+.sectionSubtitleblack,
+.sectionSubtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+  padding: 0 1rem;
+}
+
+/* Grid improvement for small screens */
+.grid {
+  gap: 2rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sectionSubtitleblack,
+  .sectionSubtitle {
+    margin-bottom: 2rem;
+  }
+
+  .ctaSection {
+    padding: 3rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+
+  .ctaText {
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .sectionTitleblack,
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .sectionSubtitleblack,
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .btn-rev-primary {
+    width: 100%;
+  }
 }
 
