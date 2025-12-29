@@ -28,56 +28,56 @@ export default function Home() {
                 title="Search Engine Marketing"
                 description="SEO for long-term growth and Google Ads for instant leads & sales."
                 icon="🔍"
-                link="/services/search-engine-marketing"
+                link="/Services/search-engine-optimization"
               />
 
               <ServiceCard
                 title="Social Media Marketing"
                 description="Content, growth, and paid ads across Instagram, Facebook & LinkedIn."
                 icon="📱"
-                link="/services/social-media-marketing"
+                link="/Services/social-media-marketing"
               />
 
               <ServiceCard
                 title="Content & Branding"
                 description="High-quality content, creatives, videos & brand identity."
                 icon="🎨"
-                link="/services/content-branding"
+                link="/Services/content-branding"
               />
 
               <ServiceCard
-                title="Website & Funnel Services"
+                title="Website development Services"
                 description="Websites, landing pages & CRO to convert visitors into customers."
                 icon="🌐"
-                link="/services/website-funnel"
+                link="/Services/web-development"
               />
 
-              <ServiceCard
+              {/* <ServiceCard
                 title="Email, WhatsApp & Automation"
                 description="Automated follow-ups, campaigns & lead nurturing systems."
                 icon="💬"
                 link="/services/automation"
-              />
+              /> */}
 
-              <ServiceCard
+              {/* <ServiceCard
                 title="Analytics & Strategy"
                 description="Tracking, insights, competitor analysis & growth planning."
                 icon="📊"
-                link="/services/analytics-strategy"
-              />
+                link="/services/dummy"
+              /> */}
 
               <ServiceCard
                 title="Influencer & Affiliate Marketing"
                 description="Influencer campaigns & affiliate systems for scalable growth."
                 icon="🤝"
-                link="/services/influencer-marketing"
+                link="/Services/influencer-marketing"
               />
 
               <ServiceCard
-                title="Reputation & Local Marketing"
+                title="Content Marketing"
                 description="Online reviews, local SEO & brand trust management."
                 icon="⭐"
-                link="/services/reputation-local"
+                link="/Services/content-marketing"
               />
 
             </div>

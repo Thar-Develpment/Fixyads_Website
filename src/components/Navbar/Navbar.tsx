@@ -1,45 +1,74 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useRef, useEffect } from 'react';
 import styles from './Navbar.module.css';
-import { useState } from 'react';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = (name: string) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
+
+  // 🔴 CLOSE ON OUTSIDE CLICK
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <header className={styles.header}>
-      <div className={styles.navContainer}>
-        <Link href="/" className={styles.logo}>
+      <div className={styles.navContainer} ref={navRef}>
+        {/* LOGO */}
+        <Link href="/">
           <img
             src="/Logo/HeadLogo.png"
-            alt="FixyAds Digital Solutions Logo"
+            alt="FixyAds Logo"
             className={styles.logoImage}
           />
         </Link>
 
-        {/* NAV LINKS */}
+        {/* NAV */}
         <nav className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
           <Link href="/" className={styles.navLink} onClick={() => setMenuOpen(false)}>
             Home
           </Link>
 
-          {/* Services */}
-          <div className={styles.dropdown}>
-            <span className={styles.navLink}>Services ▾</span>
+          {/* SERVICES */}
+          <div className={`${styles.dropdown} ${openDropdown === 'services' ? styles.open : ''}`}>
+            <span
+              className={styles.navLink}
+              onClick={() => toggleDropdown('services')}
+            >
+              Services ▾
+            </span>
             <div className={styles.dropdownMenu}>
               <Link href="/Services/search-engine-optimization">SEO</Link>
               <Link href="/Services/social-media-marketing">SMM</Link>
               <Link href="/Services/content-branding">Content & Branding</Link>
               <Link href="/Services/web-development">Web Development</Link>
               <Link href="/Services/influencer-marketing">Influencer Marketing</Link>
-              <Link href="/Services/Content-marketing">Content Marketing</Link>
             </div>
           </div>
 
-          {/* Courses */}
-          <div className={styles.dropdown}>
-            <span className={styles.navLink}>Courses ▾</span>
+          {/* COURSES */}
+          <div className={`${styles.dropdown} ${openDropdown === 'courses' ? styles.open : ''}`}>
+            <span
+              className={styles.navLink}
+              onClick={() => toggleDropdown('courses')}
+            >
+              Courses ▾
+            </span>
             <div className={styles.dropdownMenu}>
               <Link href="/courses/digital-marketing">Digital Marketing</Link>
               <Link href="/courses/web-development">Web Development</Link>
@@ -59,10 +88,10 @@ const Navbar = () => {
         {/* MOBILE BUTTON */}
         <button
           className={styles.mobileMenuBtn}
-          aria-label="Menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ☰
+          {menuOpen ? '✕' : '☰'}
         </button>
       </div>
     </header>
