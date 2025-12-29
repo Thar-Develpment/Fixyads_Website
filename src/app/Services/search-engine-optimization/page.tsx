@@ -29,7 +29,7 @@ export default function ServicesPage() {
               Rank higher on Google, attract quality traffic, and convert visitors
               into customers with our proven SEO strategies.
             </p>
-            <Link href="/contact" className={styles.primaryBtn}>
+            <Link href="/contact" className='btn primary-btn'>
               Get Free SEO Audit
             </Link>
           </div>
@@ -109,7 +109,7 @@ export default function ServicesPage() {
           <p>
             Let our SEO experts help you grow organic traffic and increase sales.
           </p>
-          <Link href="/contact" className={styles.secondaryBtn}>
+          <Link href="/contact" className='btn btn-secondary' style={{marginTop: '30px'}}>
             Talk to an Expert
           </Link>
         </div>

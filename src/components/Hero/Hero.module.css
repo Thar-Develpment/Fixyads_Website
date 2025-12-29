@@ -8,7 +8,7 @@
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  border-radius: 25% 0% 25% 0%;
+  border-radius: 0% 0% 25% 0%;
 }
 
 /* INNER LAYOUT */
@@ -37,7 +37,9 @@
 }
 
 .highlight {
-  color: var(--primary);
+  /* color: var(--primary); */
+  /* linear-gradient(135deg, #15b597, #0f766e); */
+  color: #119c90;
   position: relative;
 }
 
@@ -69,6 +71,7 @@
   flex-wrap: wrap;
 }
 
+
 /* IMAGE */
 .imageWrapper {
   flex: 1;
@@ -80,6 +83,19 @@
   width: 100%;
   max-width: 520px;
   height: auto;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* ===================== */

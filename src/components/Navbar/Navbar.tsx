@@ -9,11 +9,13 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
 
+  // ✅ Mobile-only dropdown toggle
   const toggleDropdown = (name: string) => {
+    if (window.innerWidth > 768) return;
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
-  // 🔴 CLOSE ON OUTSIDE CLICK
+  // ✅ Close menu & dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -29,8 +31,9 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.navContainer} ref={navRef}>
+
         {/* LOGO */}
-        <Link href="/">
+        <Link href="/" onClick={() => setMenuOpen(false)}>
           <img
             src="/Logo/HeadLogo.png"
             alt="FixyAds Logo"
@@ -38,37 +41,53 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* NAV */}
+        {/* NAV LINKS */}
         <nav className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
-          <Link href="/" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+
+          <Link
+            href="/"
+            className={styles.navLink}
+            onClick={() => setMenuOpen(false)}
+          >
             Home
           </Link>
 
           {/* SERVICES */}
-          <div className={`${styles.dropdown} ${openDropdown === 'services' ? styles.open : ''}`}>
+          <div
+            className={`${styles.dropdown} ${
+              openDropdown === 'services' ? styles.open : ''
+            }`}
+          >
             <span
               className={styles.navLink}
               onClick={() => toggleDropdown('services')}
             >
               Services ▾
             </span>
+
             <div className={styles.dropdownMenu}>
               <Link href="/Services/search-engine-optimization">SEO</Link>
               <Link href="/Services/social-media-marketing">SMM</Link>
               <Link href="/Services/content-branding">Content & Branding</Link>
               <Link href="/Services/web-development">Web Development</Link>
               <Link href="/Services/influencer-marketing">Influencer Marketing</Link>
+              <Link href="/Services/content-marketing">Content Marketing</Link>
             </div>
           </div>
 
           {/* COURSES */}
-          <div className={`${styles.dropdown} ${openDropdown === 'courses' ? styles.open : ''}`}>
+          <div
+            className={`${styles.dropdown} ${
+              openDropdown === 'courses' ? styles.open : ''
+            }`}
+          >
             <span
               className={styles.navLink}
               onClick={() => toggleDropdown('courses')}
             >
               Courses ▾
             </span>
+
             <div className={styles.dropdownMenu}>
               <Link href="/courses/digital-marketing">Digital Marketing</Link>
               <Link href="/courses/web-development">Web Development</Link>
@@ -76,16 +95,24 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Link href="/about" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+          <Link
+            href="/about"
+            className={styles.navLink}
+            onClick={() => setMenuOpen(false)}
+          >
             About
           </Link>
 
-          <Link href="/contact" className="btn btn-primary">
+          <Link
+            href="/contact"
+            className="btn btn-primary"
+            onClick={() => setMenuOpen(false)}
+          >
             Get Free Audit
           </Link>
         </nav>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE MENU BUTTON */}
         <button
           className={styles.mobileMenuBtn}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}

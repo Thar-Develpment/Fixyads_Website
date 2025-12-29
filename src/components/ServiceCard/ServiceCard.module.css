@@ -24,7 +24,8 @@
 .icon {
   width: 56px;
   height: 56px;
-  background: #0b2545;
+  /* background: #0b4893; */
+  border: #0b2545 dotted 0.5px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -49,7 +50,7 @@
 /* Description */
 .description {
   font-size: 15px;
-  color: #64748b;
+  color: #0f172a;
   line-height: 1.6;
   max-width: 280px;
 }

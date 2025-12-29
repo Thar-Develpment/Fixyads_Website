@@ -9,8 +9,8 @@ export default function HowWeWork() {
       <div className={styles.container}>
         {/* Left Image */}
         <div>
-          <h2 className={styles.title}><span style={{color: '#15b597'}}>How We Work</span></h2>
-          <div className={styles.imageWrap}>
+          <h2 className={styles.title}><span style={{color: 'var(--primary)'}}>How We Work</span></h2>
+          <div className={styles.imageWrapper}>
             <img
               src="/Banner/banner.png"
               alt="How FixyAds works"

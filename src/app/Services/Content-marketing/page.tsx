@@ -29,7 +29,7 @@ export default function ContentMarketingPage() {
               We create high-quality, SEO-driven content that builds authority,
               nurtures trust, and delivers long-term growth.
             </p>
-            <Link href="/contact" className={styles.primaryBtn}>
+            <Link href="/contact" className='btn btn-secondary'>
               Get Content Strategy
             </Link>
           </div>

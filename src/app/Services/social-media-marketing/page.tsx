@@ -29,7 +29,7 @@ export default function SocialMediaMarketingPage() {
               Engage your audience, grow your followers, and turn social media
               into a powerful revenue channel with data-driven strategies.
             </p>
-            <Link href="/contact" className={styles.primaryBtn}>
+            <Link href="/contact" className='btn btn-primary'>
               Get Free Strategy Call
             </Link>
           </div>
@@ -114,7 +114,7 @@ export default function SocialMediaMarketingPage() {
             Let our social media experts turn your followers into loyal
             customers.
           </p>
-          <Link href="/contact" className={styles.secondaryBtn}>
+          <Link href="/contact" className='btn btn-secondary' style={{marginTop: '35px'}}>
             Talk to a Social Media Expert
           </Link>
         </div>

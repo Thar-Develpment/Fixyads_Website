@@ -33,6 +33,19 @@
   width: 100%;
   height: auto;
   border-radius: 12px;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Timeline */
@@ -83,7 +96,7 @@
 .stepNo {
   font-size: 42px;
   font-weight: 300;
-  color: #cbd5e1;
+  color: #474c52;
   line-height: 1;
 }
 
@@ -96,7 +109,7 @@
 
 .step p {
   font-size: 15px;
-  color: #64748b;
+  color: #1b2129;
   line-height: 1.6;
   max-width: 360px;
 }

@@ -37,7 +37,7 @@ const Hero = () => {
           <div className={styles.imageWrapper}>
             <img
               src="/Hero_images_planner/image-1.png"
-              alt="Hero Image"
+              alt="Digital Marketing Growth"
               className={styles.heroImage}
             />
           </div>

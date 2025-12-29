@@ -4,10 +4,10 @@
 
 :root {
   /* Brand Colors - Directly matched to the Fixyads logo */
-  --primary: #15b597;       /* The vibrant Teal/Green from the logo (main color) */
+  --primary: #119c90;       /* The vibrant Teal/Green from the logo (main color) */
   --primary-dark: #fff;   /* Darker shade for hover states */
   --secondary: #fff;     /* A rich, complementary deep purple for contrast/secondary actions */
-  --accent: #ff7f2a;       /* An energetic, warm orange for high visibility and focus rings */
+  --accent: #fc7922;       /* An energetic, warm orange for high visibility and focus rings */
 
   /* Neutral Colors (Light Mode) - Clean and modern */
   --background: #ffffff;
@@ -44,7 +44,7 @@
   :root {
     --background: #white;      /* Slightly softer dark background */
     --foreground: #ededed;
-    --muted: #a0a0a0;
+    --muted: #3a3a3a;
     --muted-light: #2c2f33;     /* Dark muted background */
     --border: #3b3e42;
   }
@@ -186,6 +186,7 @@ p {
    ========================================================================= */
 
 .btn {
+  color: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;

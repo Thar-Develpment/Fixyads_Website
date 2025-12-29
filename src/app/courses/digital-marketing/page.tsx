@@ -20,7 +20,7 @@ export default function DigitalMarketingCourse() {
 
           <div className={styles.courseHeroImage}>
             <Image
-              src="/courses/digital-marketing.png"
+              src="/courses/Digital-marketing.png"
               alt="Digital Marketing Course"
               fill
             />
