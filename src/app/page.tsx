@@ -26,28 +26,28 @@ export default function Home() {
 
               <ServiceCard
                 title="Search Engine Marketing"
-                description="SEO for long-term growth and Google Ads for instant leads & sales."
+                description="Targeted search engine marketing using Google Ads, keyword strategy, bid optimization, and analytics for high-intent leads."
                 icon="🔍"
                 link="/Services/search-engine-optimization"
               />
 
               <ServiceCard
                 title="Social Media Marketing"
-                description="Content, growth, and paid ads across Instagram, Facebook & LinkedIn."
+                description="Results-driven social media marketing with content planning, audience targeting, paid ads, and performance tracking tools."
                 icon="📱"
                 link="/Services/social-media-marketing"
               />
 
               <ServiceCard
                 title="Content & Branding"
-                description="High-quality content, creatives, videos & brand identity."
+                description="Strategic branding through research, visual identity, messaging, and brand guidelines that build trust and recognition."
                 icon="🎨"
                 link="/Services/content-branding"
               />
 
               <ServiceCard
                 title="Website development Services"
-                description="Websites, landing pages & CRO to convert visitors into customers."
+                description="Conversion-focused website development with responsive design, SEO-friendly code, UX optimization, and fast performance."
                 icon="🌐"
                 link="/Services/web-development"
               />
@@ -68,14 +68,14 @@ export default function Home() {
 
               <ServiceCard
                 title="Influencer & Affiliate Marketing"
-                description="Influencer campaigns & affiliate systems for scalable growth."
+                description="Influencer marketing powered by creator research, campaign strategy, tracking tools, and authentic brand collaborations."
                 icon="🤝"
                 link="/Services/influencer-marketing"
               />
 
               <ServiceCard
                 title="Content Marketing"
-                description="Online reviews, local SEO & brand trust management."
+                description="SEO-focused content marketing using keyword research, planning, optimization tools, and performance measurement."
                 icon="⭐"
                 link="/Services/content-marketing"
               />
@@ -83,9 +83,9 @@ export default function Home() {
             </div>
 
 
-            <div className="text-center" style={{ marginTop: '3rem',}}>
+            {/* <div className="text-center" style={{ marginTop: '3rem',}}>
               <Link href="/contact" className="btn btn-primary">Contact us</Link>
-            </div>
+            </div> */}
           </section>
         </div>
       </div>
@@ -98,10 +98,10 @@ export default function Home() {
 
       <WhyChooseFixyAds />
 
-      <StatsBar />
+      {/* <StatsBar /> */}
 
       {/* Testimonials Section */}
-      <section className="section container" style={{margin: '0px auto' }}>
+      {/* <section className="section container" style={{margin: '0px auto' }}>
         <h2 className={styles.sectionTitleblack}>What Our Clients Say</h2>
         <p className={styles.sectionSubtitleblack}>
           Trusted by businesses and students alike.
@@ -124,18 +124,18 @@ export default function Home() {
             <div className={styles.testimonialRole}>Founder, GreenEats</div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="container">
         <div className={styles.ctaSection}>
           <h2 className={styles.ctaTitle}>Ready to Grow?</h2>
           <p className={styles.ctaText}>
-            Whether you need a marketing partner or want to upskill your career, we are here to help.
+            From finding the right Marketing Partner to Upskilling Your Career, we help you grow with confidence.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link href="/contact" className="btn btn-primary" >
-              Get Started
+              Get Audit
             </Link>
             <Link href="/courses/digital-marketing" className='btn btn-secondary'>
               View Courses

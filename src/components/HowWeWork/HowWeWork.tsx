@@ -26,8 +26,8 @@ export default function HowWeWork() {
             <div className={styles.circle}>01</div>
             <div className={styles.content}>
               {/* <span className={styles.stepNo}>01</span> */}
-              <h3>Research</h3>
-              <p>We deeply understand your business, audience, and goals.</p>
+              <h3>Understand</h3>
+              <p>Understand your business goals, target audience, market trends, and digital marketing gaps through detailed research.</p>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ export default function HowWeWork() {
             <div className={styles.content}>
               {/* <span className={styles.stepNo}>02</span> */}
               <h3>Strategize</h3>
-              <p>Customized strategies crafted to maximize growth.</p>
+              <p>Strategize SEO, branding, content, and social media marketing plans tailored to your growth objectives.</p>
             </div>
           </div>
 
@@ -44,8 +44,8 @@ export default function HowWeWork() {
             <div className={styles.circle}>03</div>
             <div className={styles.content}>
               {/* <span className={styles.stepNo}>03</span> */}
-              <h3>Launch & Optimize</h3>
-              <p>We execute, monitor, and optimize for real results.</p>
+              <h3>Deliver Results</h3>
+              <p>Execute campaigns, measure performance, optimize tactics, and deliver measurable digital marketing results.</p>
             </div>
           </div>
         </div>

@@ -3,30 +3,30 @@ import styles from "./WhyChooseFixyAds.module.css";
 const features = [
   {
     title: "Expert Team",
-    description: "Certified marketing professionals",
+    description: "Certified digital marketing professionals with hands-on experience in SEO, branding, and social media marketing.",
     image: "/whychoosefixyads/expert.png",
-    cardtag: "Performance rate deco",
+    cardtag: "Certified marketing professionals",
     variant: "orange",
   },
   {
     title: "Data Driven",
-    description: "Decisions powered by analytics",
+    description: "Every decision is powered by analytics, performance metrics, and real-time data insights for measurable growth.",
     image: "/whychoosefixyads/dataDriven.png",
-    cardtag: "Performance rate deco",
+    cardtag: "Decisions powered by analytics",
     variant: "teal",
   },
   {
     title: "Affordable Plans",
-    description: "Best value for your budget",
+    description: "Cost-effective digital marketing solutions designed to deliver maximum value within your business budget.",
     image: "/whychoosefixyads/coin.png",
-    cardtag: "Performance rate deco",
+    cardtag: "Best value for your budget",
     variant: "orange",
   },
   {
     title: "Transparent Reports",
-    description: "Clear performance tracking",
+    description: "Clear, detailed performance reports with measurable results, insights, and continuous optimization tracking.",
     image: "/whychoosefixyads/image.png",
-    cardtag: "Performance rate deco",
+    cardtag: "Clear performance tracking",
     variant: "teal",
   },
 ];
@@ -37,9 +37,9 @@ export default function WhyChooseFixyAds() {
     <section className={styles.section}>
       <div className={styles.sectionbg}>
         <div className={styles.container}>
-          <h2 className={styles.heading}>Why Choose FixyAds</h2>
+          <h2 className={styles.heading}>Why Brands Trust Us</h2>
           <p className={styles.subheading}>
-            Performance-focused strategies that deliver <b>real, measurable growth</b>
+            Expert-led digital marketing services built on  <b>analytics, accountability, and trust.</b>
           </p>
 
           <div className={styles.grid}>
@@ -69,14 +69,13 @@ export default function WhyChooseFixyAds() {
           </div>
 
           <div className={styles.trustBar}>
-            <span>🚀 50+ Projects Delivered</span>
-            <span>⭐ 95% Client Satisfaction</span>
-            <span>🤝 Trusted by Startups & SMEs</span>
+            <span>Enhance – Experience – Elevation</span>
+            <span>🤝 Satisfied Brands, Transparency Process, 24 x 7 Support</span>
           </div>
 
           <div className={styles.ctaWrapper}>
             <a href="#contact" className="btn primary-btn"  style={{color: 'white'}}>
-              Get Free Strategy Call →
+              Free Marketing Audit Call →
             </a>
           </div>
         </div>

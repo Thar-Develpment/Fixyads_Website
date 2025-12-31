@@ -4,17 +4,17 @@ import { FaBullhorn, FaCode, FaBriefcase } from "react-icons/fa";
 const courses = [
   {
     title: "Digital Marketing",
-    description: "Live classes, real campaigns & internship experience",
+    description: "Hands-on digital marketing course covering SEO, social media marketing, Google Ads, analytics tools, live projects, and real-world strategies.",
     icon: <FaBullhorn />,
   },
   {
     title: "Web Development",
-    description: "HTML, CSS, JavaScript with hands-on projects",
+    description: "Practical website development training using HTML, CSS, JavaScript, CMS platforms, responsive design, SEO practices, and performance optimization.",
     icon: <FaCode />,
   },
   {
     title: "Placement Support",
-    description: "Career guidance, mock interviews & mentorship",
+    description: "Placement support with resume building, interview preparation, portfolio guidance, mock interviews, and career assistance tools.",
     icon: <FaBriefcase />,
   },
 ];
