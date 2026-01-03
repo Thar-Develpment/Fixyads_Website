@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './BubblesCloud.module.css';
 
 interface Bubble {
@@ -8,6 +8,9 @@ interface Bubble {
   size: number;
   top: number;
   left: number;
+  floatRange: string;
+  floatDuration: string;
+  floatDelay: string;
 }
 
 const bubbleImages = [
@@ -20,20 +23,22 @@ const bubbleImages = [
   '/bubbles/lighthouse.png',
   '/bubbles/aistudio.png',
   '/bubbles/notebook.png',
-  '/bubbles/googleads.png'
+  '/bubbles/googleads.png',
 ];
 
 const MAX_ATTEMPTS = 50;
 const MIN_GAP = 14;
 
 const BubblesCloud = () => {
-  const bubbles = useMemo<Bubble[]>(() => {
+  const [bubbles, setBubbles] = useState<Bubble[]>([]);
+
+  useEffect(() => {
     const placed: Bubble[] = [];
 
     bubbleImages.forEach((img) => {
       const size = Math.floor(Math.random() * 40) + 70;
 
-      let bubble: Bubble;
+      let bubble: Omit<Bubble, 'floatRange' | 'floatDuration' | 'floatDelay'>;
       let attempts = 0;
 
       do {
@@ -41,7 +46,7 @@ const BubblesCloud = () => {
           img,
           size,
           top: Math.random() * 80,
-          left: Math.random() * 80
+          left: Math.random() * 80,
         };
 
         attempts++;
@@ -55,11 +60,19 @@ const BubblesCloud = () => {
         })
       );
 
-      placed.push(bubble);
+      placed.push({
+        ...bubble,
+        floatRange: `${Math.random() * 10 + 8}px`,
+        floatDuration: `${Math.random() * 4 + 5}s`,
+        floatDelay: `${Math.random() * 2}s`,
+      });
     });
 
-    return placed;
+    setBubbles(placed);
   }, []);
+
+  // 🚨 Prevent hydration mismatch
+  if (bubbles.length === 0) return null;
 
   return (
     <div className={styles.wrapper}>
@@ -67,17 +80,15 @@ const BubblesCloud = () => {
         <div
           key={index}
           className={styles.bubble}
-        style={{
-          width: bubble.size,
-          height: bubble.size,
-          top: `${bubble.top}%`,
-          left: `${bubble.left}%`,
-
-          // 🎈 random floating behavior
-          ['--float-range' as any]: `${Math.random() * 10 + 8}px`,   // 8–18px
-          ['--float-duration' as any]: `${Math.random() * 4 + 5}s`, // 5–9s
-          ['--float-delay' as any]: `${Math.random() * 2}s`,        // 0–2s
-        }}
+          style={{
+            width: bubble.size,
+            height: bubble.size,
+            top: `${bubble.top}%`,
+            left: `${bubble.left}%`,
+            ['--float-range' as any]: bubble.floatRange,
+            ['--float-duration' as any]: bubble.floatDuration,
+            ['--float-delay' as any]: bubble.floatDelay,
+          }}
         >
           <img src={bubble.img} alt="Bubble icon" />
         </div>
