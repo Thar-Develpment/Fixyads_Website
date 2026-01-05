@@ -71,7 +71,6 @@ const Navbar = () => {
               <Link href="/Services/content-branding">Content & Branding</Link>
               <Link href="/Services/web-development">Web Development</Link>
               <Link href="/Services/influencer-marketing">Influencer Marketing</Link>
-              <Link href="/Services/content-marketing">Content Marketing</Link>
             </div>
           </div>
 
