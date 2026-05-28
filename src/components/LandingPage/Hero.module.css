@@ -28,6 +28,7 @@
 .bgLayer {
   position: absolute;
   inset: 0;
+  background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -502,113 +503,297 @@
   }
 }
 
+/* =========================================================================
+   MOBILE — everything fits in one screen, image slightly bigger
+   ========================================================================= */
+
 @media (max-width: 768px) {
   .hero {
-    height: auto;
+    /* Lock to exactly one viewport height — no overflow, no scroll */
+    height: 100vh;
     min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* No bottom padding — let the bgStack touch the absolute bottom edge */
+    padding: var(--navbar-offset) 0 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #0B1C3D;
+  }
+
+  .heroLight {
+    background-color: #FFFFFF !important;
+  }
+
+  /* ── IMAGE — Stretch to fill remaining space and place dots directly on it ── */
+  .bgStack {
+    position: relative;
+    height: auto;
+    min-height: 220px;
     max-height: none;
-    padding: 110px 0 7rem;
+    width: 100%;
+    order: 2;
+    /* Tighter top gap so image gains space without pushing content off screen */
+    margin-top: 0.75rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .bgLayer {
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-mobile) !important;
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+  }
+
+  .heroLight .bgLayer {
+    background-image: var(--bg-mobile) !important;
+    background-size: contain !important;
+    background-position: center center !important;
+    transform: scale(1) !important;
+  }
+
+  .container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0 1.25rem;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    order: 1;
+    flex-shrink: 0;
   }
 
   .leftCol {
     max-width: 100%;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background: transparent;
+    padding: 0;
+  }
+
+  /* ── Badge — reduced vertical rhythm ── */
+  .awardBadge {
+    display: inline-flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.85rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    margin-bottom: 0.55rem;
+  }
+
+  .badgeText {
+    font-size: 0.68rem;
   }
 
   .titleContainer {
-    min-height: 80px;
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    margin-bottom: 0.35rem;
   }
 
   .title {
-    font-size: clamp(2rem, 5.5vw, 2.75rem);
-    text-align: center;
+    font-size: clamp(1.55rem, 5.2vw, 2rem);
+    font-weight: 800;
+    line-height: 1.18;
+    text-align: left;
+    color: #FFFFFF;
+    position: relative;
+    opacity: 0;
+    transform: translateY(15px);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .titleActive {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+  }
+
+  .titleHidden {
+    display: none !important;
   }
 
   .descContainer {
+    position: relative;
+    width: 100%;
     min-height: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 0.85rem;
   }
 
   .description {
-    text-align: center;
-    font-size: 1rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.9);
     position: relative;
     opacity: 0;
+    transform: translateY(10px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
   .descActive {
     opacity: 1;
+    transform: translateY(0);
+    position: relative;
   }
 
   .descHidden {
-    display: none;
+    display: none !important;
   }
 
   .actions {
-    justify-content: center;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
+  .primaryButton {
+    font-size: 0.8rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(244, 82, 30, 0.35);
+  }
+
+  .playCircle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ghostText {
+    font-size: 0.8rem;
+  }
+
+  /* ── Trust bar — compact, single row, no wrapping ── */
   .trustBar {
-    justify-content: center;
-    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    width: 100%;
+    flex-wrap: nowrap;
   }
 
+  .heroLight .trustBar {
+    border-top: 1px solid rgba(11, 28, 61, 0.08) !important;
+  }
+
+  .ratingBlock {
+    gap: 0.1rem;
+  }
+
+  .stars {
+    gap: 0.15rem;
+  }
+
+  .starIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .ratingText {
+    font-size: 0.7rem;
+  }
+
+  .teamBlock {
+    gap: 0.35rem;
+  }
+
+  .teamAvatar {
+    width: 26px;
+    height: 26px;
+  }
+
+  .teamLabel {
+    font-size: 0.6rem;
+  }
+
+  .teamValue {
+    font-size: 0.7rem;
+  }
+
+  /* ── Control bar — anchored just above the bottom edge ── */
   .controlBar {
-    bottom: 2rem;
-    gap: 1.5rem;
-    padding: 0.5rem 1.6rem;
-  }
-
-  .heroLight .bgLayer {
-    background-size: contain !important;
-    background-position: center bottom 2rem !important; /* Center-bottom positioning on mobile to avoid overlapping */
-    transform: scale(0.95) !important;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 1rem;
+    padding: 0.35rem 1rem;
+    z-index: 15;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 95px 0 5.5rem;
+    padding: var(--navbar-offset) 0 0;
+  }
+
+  /* ── Stretches to fill remaining space on small phones as well ── */
+  .bgStack {
+    height: auto;
+    min-height: 190px;
+    max-height: none;
+    margin-top: 0.5rem;
   }
 
   .title {
-    font-size: 1.85rem;
+    font-size: 1.45rem;
   }
 
-  .titleContainer {
-    min-height: 70px;
+  .description {
+    font-size: 0.78rem;
+    line-height: 1.42;
   }
 
   .actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.8rem;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
   }
 
   .primaryButton {
-    width: 100%;
-    justify-content: center;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .ghostButton {
-    width: 100%;
-    justify-content: center;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.75rem;
   }
 
   .trustBar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.25rem;
-    padding-top: 1.5rem;
+    gap: 0.75rem;
+    padding-top: 0.55rem;
   }
 
   .controlBar {
-    display: none;
-    /* Hide control bar on super small viewports */
+    bottom: 1rem;
+    gap: 0.75rem;
+    padding: 0.3rem 0.85rem;
+  }
+
+  /* Hide arrows on very small screens to keep control bar compact */
+  .controlBar .arrows {
+    display: none !important;
   }
 }
 
