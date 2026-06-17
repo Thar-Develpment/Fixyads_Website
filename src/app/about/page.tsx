@@ -100,6 +100,66 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── Team Section ── */}
+      <section className={styles.teamSection}>
+        <div className={styles.container}>
+          <div className={styles.teamHeader}>
+            <span className={styles.sectionEyebrow}>// Meet The Team</span>
+            <h2 className={styles.sectionTitle}>The People Behind The Process</h2>
+          </div>
+
+          {/* Featured Founder Card */}
+          <div className={styles.founderCard}>
+            <div className={styles.founderOrb} />
+            <div className={styles.founderLeft}>
+              <div className={styles.founderImgWrap}>
+                <img
+                  src="/Team/Mujibur.png"
+                  alt="Mujibur - Founder & CEO"
+                  className={styles.founderImg}
+                />
+              </div>
+              <h3 className={styles.founderName}>Mujibur Rahman</h3>
+            </div>
+            <div className={styles.founderContent}>
+              <span className={styles.founderBadge}>Founder &amp; CEO</span>
+              <p className={styles.founderText}>
+                Leading the vision and strategy behind our agency, with a passion for
+                building brands and mentoring the next generation of marketers and developers.
+              </p>
+            </div>
+          </div>
+
+          {/* Other Team Members */}
+          <div className={styles.teamGrid}>
+            <div className={styles.teamCard}>
+              <div className={styles.teamImgWrap}>
+                <img
+                  src="/Team/Vaishnavi.png"
+                  alt="Vaishnavi - Digital Marketer"
+                  className={styles.teamImg}
+                />
+              </div>
+              <h3 className={styles.teamName}>Vaishnavi</h3>
+              <p className={styles.teamRole}>Digital Marketer</p>
+            </div>
+
+            <div className={styles.teamCard}>
+              <div className={styles.teamImgWrap}>
+                <img
+                  src="/Team/kalil.png"
+                  alt="Kalil - Tech Lead"
+                  className={styles.teamImg}
+                />
+              </div>
+              <h3 className={styles.teamName}>Kalil</h3>
+              <p className={styles.teamRole}>Tech Lead</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* ── CTA Banner ── */}
       <section className="container mb-8">
         <div className={styles.ctaBlock}>

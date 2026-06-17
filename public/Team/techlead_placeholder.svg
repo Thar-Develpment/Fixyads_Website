@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1C3D" />
+      <stop offset="100%" stop-color="#061126" />
+    </linearGradient>
+    <linearGradient id="avatarAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4521E" />
+      <stop offset="100%" stop-color="#FF7043" />
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="100" cy="100" r="100" />
+    </clipPath>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#avatarBg)" />
+  
+  <!-- Subtle Background Grid/Tech Lines -->
+  <path d="M 0,50 L 200,50 M 0,100 L 200,100 M 0,150 L 200,150 M 50,0 L 50,200 M 100,0 L 100,200 M 150,0 L 150,200" 
+        stroke="rgba(255, 255, 255, 0.03)" stroke-width="1" />
+  
+  <!-- Avatar Base (Silhouette) -->
+  <g clip-path="url(#circleClip)">
+    <!-- Head/Hair Silhouette -->
+    <circle cx="100" cy="75" r="32" fill="url(#avatarAccent)" opacity="0.85" />
+    
+    <!-- Shoulders/Body Silhouette -->
+    <path d="M 40,165 C 40,125 70,115 100,115 C 130,115 160,125 160,165 C 160,180 160,200 160,200 L 40,200 Z" 
+          fill="url(#avatarAccent)" />
+          
+    <!-- Decorative Tech Details (e.g. Code brackets or gear details) -->
+    <path d="M 85,75 L 75,80 L 85,85" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9" />
+    <path d="M 115,75 L 125,80 L 115,85" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9" />
+    <path d="M 105,73 L 95,87" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9" />
+  </g>
+  
+  <!-- Outer Ring border to match team layout -->
+  <circle cx="100" cy="100" r="97" fill="none" stroke="rgba(244, 82, 30, 0.2)" stroke-width="6" />
+</svg>

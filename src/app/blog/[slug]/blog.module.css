@@ -531,6 +531,69 @@
   transform: translateX(4px);
 }
 
+
+/* FAQ Details Block */
+
+.postContent details {
+  margin: 1rem 0;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.postContent details:hover {
+  border-color: var(--accent);
+}
+
+.postContent summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  color: #1A1A2E;
+  position: relative;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.postContent summary:hover {
+  background: #F8FAFC;
+}
+
+.postContent summary::-webkit-details-marker {
+  display: none;
+}
+
+.postContent summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.postContent details[open] summary::after {
+  content: "−";
+}
+
+.postContent details[open] summary {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.postContent details > *:not(summary) {
+  padding: 1rem 1.25rem;
+}
+
+.postContent details p:last-child {
+  margin-bottom: 0;
+}
+
 /* =========================================================================
    TOC VISIBILITY CONTROL
    ========================================================================= */
