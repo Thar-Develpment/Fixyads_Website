@@ -15,9 +15,9 @@ const slides = [
       </>
     ),
     description: "We help ambitious brands rank #1 and drive organic customers through data-driven search engine optimization, premium performance marketing, and compounding digital authority.",
-    bgImage: "/Hero_images_planner/seo-slide-01.png",
-    bgImageMobile: "/Hero_images_planner/seo-slide-01-mobile.png",
-    ctaText: "Get Started Today", 
+    bgImage: "/Hero_images_planner/seo-slide-01.avif",
+    bgImageMobile: "/Hero_images_planner/seo-slide-01-mobile.avif",
+    ctaText: "Get Started Today",
     ctaLink: "/contact",
     watchVideo: true,
     isLight: true // Mark this slide as light theme (white background)
@@ -31,8 +31,8 @@ const slides = [
       </>
     ),
     description: "Building ultra-fast, visually stunning, and highly responsive web applications utilizing modern frameworks, premium design systems, and robust clean code built to convert.",
-    bgImage: "/Hero_images_planner/web-dev-slide-02.png",
-    bgImageMobile: "/Hero_images_planner/web-dev-slide-02-mobile.png",
+    bgImage: "/Hero_images_planner/web-dev-slide-02.avif",
+    bgImageMobile: "/Hero_images_planner/web-dev-slide-02-mobile.avif",
     ctaText: "Build Your Website",
     ctaLink: "/services/web-development",
     watchVideo: true,
@@ -47,8 +47,8 @@ const slides = [
       </>
     ),
     description: "Supercharge your online presence and engage active audiences with high-ROI social media management, organic growth campaigns, and targeted media placement.",
-    bgImage: "/Hero_images_planner/smm-slide-03.png",
-    bgImageMobile: "/Hero_images_planner/smm-slide-03-mobile.png",
+    bgImage: "/Hero_images_planner/smm-slide-03.avif",
+    bgImageMobile: "/Hero_images_planner/smm-slide-03-mobile.avif",
     ctaText: "Explore SMM Plans",
     ctaLink: "/services/social-media-marketing",
     watchVideo: false
