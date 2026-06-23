@@ -135,7 +135,7 @@ export default function AboutPage() {
             <div className={styles.teamCard}>
               <div className={styles.teamImgWrap}>
                 <img
-                  src="/Team/Vaishnavi.png"
+                  src="/Team/vaishnavi.png"
                   alt="Vaishnavi - Digital Marketer"
                   className={styles.teamImg}
                 />
@@ -147,7 +147,7 @@ export default function AboutPage() {
             <div className={styles.teamCard}>
               <div className={styles.teamImgWrap}>
                 <img
-                  src="/Team/kalil.png"
+                  src="/Team/Kalil.png"
                   alt="Kalil - Tech Lead"
                   className={styles.teamImg}
                 />
