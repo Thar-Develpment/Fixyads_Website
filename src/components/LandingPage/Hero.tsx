@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Play, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Hero.module.css';
 
@@ -55,6 +56,10 @@ const slides = [
   }
 ];
 
+const prefersReducedMotion =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -97,6 +102,8 @@ const Hero = () => {
 
   // Initialize auto-play timer on component mount
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     startTimer();
     return () => stopTimer();
   }, []);
@@ -109,11 +116,28 @@ const Hero = () => {
           <div
             key={index}
             className={`${styles.bgLayer} ${index === currentSlide ? styles.bgActive : ''}`}
-            style={{
-              '--bg-desktop': `url(${slide.bgImage})`,
-              '--bg-mobile': `url(${slide.bgImageMobile || slide.bgImage})`
-            } as React.CSSProperties}
-          />
+          >
+            {/* Desktop Image */}
+            <Image
+              src={slide.bgImage}
+              fill
+              priority={index === 0}
+              quality={85}
+              sizes="100vw"
+              alt=""
+              className={`${styles.heroImage} ${styles.desktopImg}`}
+            />
+            {/* Mobile Image */}
+            <Image
+              src={slide.bgImageMobile || slide.bgImage}
+              fill
+              priority={index === 0}
+              quality={85}
+              sizes="100vw"
+              alt=""
+              className={`${styles.heroImage} ${styles.mobileImg}`}
+            />
+          </div>
         ))}
         {/* Dark brand gradients to ensure exceptional contrast and readability of white text */}
         <div className={styles.gradientOverlay}></div>
