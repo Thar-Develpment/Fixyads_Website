@@ -14,30 +14,29 @@
     background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Floating card design inspired by the reference layout */
-.floatingCard {
+/* Floating card design simplified to navWrapper */
+.navWrapper {
   max-width: var(--max-width);
   margin: 0 auto;
-  background: #0B1C3D;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: transparent;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
 }
 
-/* Scrolled sticky state transition (re-enabled for reveal-on-scroll-up) */
+/* Scrolled sticky state transition */
 .header.scrolled {
   position: fixed;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
 }
 
-.header.scrolled .floatingCard {
-  border-radius: 12px;
-  background: rgba(11, 28, 61, 0.95);
+.header.scrolled .navWrapper {
+  border-radius: 999px;
+  background: rgba(11, 28, 61, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 1rem;
 }
 
 /* Hidden state: slides up smoothly out of view when scrolling down */
@@ -232,7 +231,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(12px);
   min-width: 240px;
-  background: #0B1C3D;
+  background: var(--primary);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
@@ -289,62 +288,55 @@
   z-index: 1010;
 }
 
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.logoTextHighlight {
+  color: var(--accent);
+}
+
 .orangeCtaBtn {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.5rem !important;
-  background: linear-gradient(135deg, #F4521E 0%, #FF7043 100%) !important; /* Solid orange gradient */
-  background-color: #F4521E !important; /* Solid fallback */
+  background: var(--accent) !important;
   color: #ffffff !important;
-  border-radius: 8px !important; /* Reduced border-radius (sleek 8px) to avoid "bubble" circle shape */
-  padding: 0.65rem 1.5rem !important;
+  border-radius: 999px !important;
+  padding: 0.55rem 1.6rem !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
-  box-shadow: 0 4px 15px rgba(244, 82, 30, 0.35) !important;
   border: 1px solid transparent !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   text-decoration: none;
-}
-
-/* Unique reflective liquid shimmer glass shine effect */
-.orangeCtaBtn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
-  transition: all 0.6s ease;
-}
-
-.orangeCtaBtn:hover::before {
-  left: 100%;
+  box-shadow: 0 4px 15px rgba(244, 82, 30, 0.2) !important;
 }
 
 .orangeCtaBtn:hover {
-  background: linear-gradient(135deg, #F4521E 0%, #FF7043 100%) !important; /* Keep exact same background gradient to remove hover color transition */
-  transform: translateY(-3px) scale(1.03) !important;
-  box-shadow: 
-    0 12px 25px rgba(244, 82, 30, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 8px 20px rgba(244, 82, 30, 0.35) !important;
+  background: #d84315 !important;
 }
 
-.btnArrow {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
+.orangeCtaBtnMobile {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100%;
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.orangeCtaBtn:hover .btnArrow {
-  transform: translateX(4px);
+.orangeCtaBtnMobile:hover {
+  background: #d84315 !important;
 }
 
 .mobileCta {
@@ -440,7 +432,7 @@
     max-height: calc(85vh); /* Prevent menu from going off-screen on short devices */
     overflow-y: auto; /* Enable scrolling inside the menu itself */
     -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
-    background: #0B1C3D;
+    background: var(--primary);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     flex-direction: column;
     align-items: flex-start;

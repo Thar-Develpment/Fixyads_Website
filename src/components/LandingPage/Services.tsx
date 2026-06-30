@@ -2,56 +2,56 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Search, Mail, Share2, Palette, TrendingUp, Code, ArrowRight } from 'lucide-react';
+import { Search, Mail, Share2, Palette, TrendingUp, Code, ArrowUpRight } from 'lucide-react';
 import styles from './Services.module.css';
 
 const serviceData = [
   {
     title: 'Search Engine Optimization',
-    description: 'Optimize your site for high-intent keywords to capture organic traffic, improve search rankings, and drive consistent organic conversions.',
+    description: 'Capture high-intent organic traffic with precision keyword strategy, technical excellence, and content that earns authority.',
     IconEl: Search,
-    bgClass: styles.iconBlueBg,
-    iconClass: styles.iconBlue,
+    accent: '#60a5fa',
+    glow: 'rgba(96,165,250,0.18)',
     link: '/services/search-engine-optimization',
   },
   {
     title: 'Social Media Marketing',
-    description: 'Grow a highly engaged community around your brand, utilizing platform-native formats, viral content strategies, and paid social campaigns.',
+    description: 'Build an engaged community with platform-native formats, viral content frameworks, and paid social that converts.',
     IconEl: Share2,
-    bgClass: styles.iconTealBg,
-    iconClass: styles.iconTeal,
+    accent: '#34d399',
+    glow: 'rgba(52,211,153,0.18)',
     link: '/services/social-media-marketing',
   },
   {
     title: 'Content & Branding',
-    description: 'Strong content helps your audience understand your brand and trust your expertise. We create content that answers real questions and drives engagement.',
+    description: 'Create content that answers real questions, builds trust, and turns visitors into brand advocates.',
     IconEl: Palette,
-    bgClass: styles.iconAmberBg,
-    iconClass: styles.iconAmber,
+    accent: '#f59e0b',
+    glow: 'rgba(245,158,11,0.18)',
     link: '/services/content-branding',
   },
   {
     title: 'Influencer Marketing',
-    description: 'We connect your brand with influencers who align naturally with your values and audience, creating authentic collaborations that build credibility.',
+    description: 'Connect with influencers who align naturally with your values — authentic collaborations that build lasting credibility.',
     IconEl: TrendingUp,
-    bgClass: styles.iconPurpleBg,
-    iconClass: styles.iconPurple,
+    accent: '#c084fc',
+    glow: 'rgba(192,132,252,0.18)',
     link: '/services/influencer-marketing',
   },
   {
     title: 'Email Marketing',
-    description: 'Direct campaigns targeted to segmented audiences, nurturing leads into high-lifetime-value loyal clients with personalized communication.',
+    description: 'Segmented, personalized campaigns that nurture leads into high-lifetime-value loyal clients.',
     IconEl: Mail,
-    bgClass: styles.iconOrangeBg,
-    iconClass: styles.iconOrange,
-    link: '/services/content-branding',
+    accent: '#fb923c',
+    glow: 'rgba(251,146,60,0.18)',
+    link: '/services/email-marketing',
   },
   {
     title: 'Website Development',
-    description: 'We design fast, intuitive, and user-friendly websites that are easy to navigate, built with SEO, usability, and conversions in mind.',
+    description: 'Fast, intuitive, conversion-optimised websites built with SEO and usability baked in from day one.',
     IconEl: Code,
-    bgClass: styles.iconGreenBg,
-    iconClass: styles.iconGreen,
+    accent: '#2dd4bf',
+    glow: 'rgba(45,212,191,0.18)',
     link: '/services/web-development',
   },
 ];
@@ -59,50 +59,81 @@ const serviceData = [
 const Services = () => {
   return (
     <section className={styles.section}>
+      {/* Background orbs */}
+      <div className={styles.orb1} />
+      <div className={styles.orb2} />
+      <div className={styles.orb3} />
+      <div className={styles.orb4} />
+
+      {/* Noise grain overlay */}
+      <div className={styles.grain} />
+
       <div className={styles.container}>
-        
-        {/* Restructured Template Header */}
+
+        {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <span className={styles.eyebrow}>// What We Do</span>
+            <span className={styles.eyebrow}>
+              <span className={styles.eyebrowDot} />
+              What We Do
+            </span>
             <h2 className={styles.title}>
-              Grow Your Business <br />With FixyAds
+              Scale Your Online Presence with
+              <span className={styles.titleAccent}> Military Grade Digital </span>
+              Marketing Services
             </h2>
             <p className={styles.subtitle}>
-              We leverage data-backed digital marketing strategies and state-of-the-art implementations 
-              to scale your customer base, enhance visibility, and accelerate recurring revenue.
+              As a results-focused digital marketing company, we deliver end-to-end digital marketing solutions designed to help businesses improve conversion rates, and achieve consistent revenue growth across competitive markets.
             </p>
           </div>
           <div className={styles.headerRight}>
             <Link href="/services" className={styles.viewAllBtn}>
               <span>View All Services</span>
-              <ArrowRight size={16} className={styles.btnArrow} />
+              <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>
 
-        {/* Restructured Template Services Cards Grid */}
+        {/* Grid */}
         <div className={styles.grid}>
-          {serviceData.slice(0, 3).map((service, index) => {
+          {serviceData.map((service, index) => {
             const Icon = service.IconEl;
             return (
-              <div key={index} className={styles.card}>
+              <Link
+                key={index}
+                href={service.link}
+                className={styles.card}
+                style={{
+                  '--card-accent': service.accent,
+                  '--card-glow': service.glow,
+                } as React.CSSProperties}
+              >
+                {/* Glass shine streak */}
+                <div className={styles.cardShine} />
+
+                {/* Top accent line */}
+                <div className={styles.cardAccentBar} />
+
+                {/* Icon */}
                 <div className={styles.iconWrap}>
-                  <Icon size={22} className={styles.iconIcon} />
+                  <Icon size={20} strokeWidth={1.75} />
                 </div>
+
+                {/* Content */}
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{service.title}</h3>
                   <p className={styles.cardDescription}>{service.description}</p>
                 </div>
+
+                {/* Footer */}
                 <div className={styles.cardFooter}>
-                  <Link href={service.link} className={styles.readMoreWrap}>
-                    <div className={styles.arrowCircle}>
-                      <ArrowRight size={16} className={styles.arrowIcon} />
-                    </div>
-                    <span className={styles.readMoreText}>Learn more</span>
-                  </Link>
+                  <span className={styles.learnMore}>
+                    Learn more
+                    <ArrowUpRight size={14} className={styles.learnMoreArrow} />
+                  </span>
+                  <div className={styles.cardNumber}>0{index + 1}</div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className={styles.heroOrb2} />
         <div className={styles.heroGrid} />
         <div className={styles.heroInner}>
-          <span className={styles.heroEyebrow}>// Who We Are</span>
+          <span className={styles.heroEyebrow}>{"// Who We Are"}</span>
           <h1 className={styles.heroTitle}>
             Bridging the Gap Between <span>Skills &amp; Scale</span>
           </h1>
@@ -45,7 +45,7 @@ export default function AboutPage() {
             </div>
 
             <div className={styles.contentColumn}>
-              <span className={styles.sectionEyebrow}>// Our Journey</span>
+              <span className={styles.sectionEyebrow}>{"// Our Journey"}</span>
               <h2 className={styles.sectionTitle}>Crafting Real-World Success Stories Since 2020</h2>
               <p className={styles.textLead}>
                 Founded with a simple mission: to bridge the gap between academic theory and active industry requirements.
@@ -104,7 +104,7 @@ export default function AboutPage() {
       <section className={styles.teamSection}>
         <div className={styles.container}>
           <div className={styles.teamHeader}>
-            <span className={styles.sectionEyebrow}>// Meet The Team</span>
+            <span className={styles.sectionEyebrow}>{"// Meet The Team"}</span>
             <h2 className={styles.sectionTitle}>The People Behind The Process</h2>
           </div>
 
@@ -147,7 +147,7 @@ export default function AboutPage() {
             <div className={styles.teamCard}>
               <div className={styles.teamImgWrap}>
                 <img
-                  src="/Team/Kalil.png"
+                  src="/Team/kalil.png"
                   alt="Kalil - Tech Lead"
                   className={styles.teamImg}
                 />
@@ -165,7 +165,7 @@ export default function AboutPage() {
         <div className={styles.ctaBlock}>
           <div className={styles.ctaOrb} />
           <div className={styles.ctaInner}>
-            <span className={styles.ctaEyebrow}>// Work With Us</span>
+            <span className={styles.ctaEyebrow}>{"// Work With Us"}</span>
             <h2 className={styles.ctaTitle}>Ready to Write Your Success Story?</h2>
             <p className={styles.ctaText}>
               Whether you are a growing business looking to double your leads or a passionate student ready to build active, marketable expertise — we are here to guide you.

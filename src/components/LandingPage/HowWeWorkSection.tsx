@@ -9,12 +9,12 @@ const steps = [
   {
     num: '01',
     title: 'Understand',
-    body: 'We begin with a deep exploration of your business objectives, audience behavior, market dynamics, and existing digital gaps. This research-led approach gives us a strategic understanding of your opportunities.',
+    body: 'We begin with a deep exploration of your business objectives, audience behavior, market dynamics, and existing digital gaps. This research-led approach gives us a strategic understanding of your opportunities and challenges.',
   },
   {
     num: '02',
     title: 'Strategize',
-    body: 'Based on deep insights, we craft a clear and purposeful digital marketing roadmap aligned with your brand vision and commercial goals — designed for sustainable, compounding growth.',
+    body: 'Our focus is to craft a clear and purposeful roadmap for sustainable digital growth. Based on these insights, we design a digital marketing plan aligned with your brand vision and commercial goals.',
   },
   {
     num: '03',
@@ -26,12 +26,19 @@ const steps = [
 const HowWeWorkSection = () => {
   return (
     <section className={styles.section}>
+      {/* ── ATMOSPHERE: grid + glow mesh ── */}
+      <div className={styles.bgStack}>
+        <div className={styles.bgColorOverlay}></div>
+        <div className={styles.bgGrid}></div>
+        <div className={styles.glowBlobA}></div>
+        <div className={styles.glowBlobB}></div>
+      </div>
       <div className={styles.container}>
 
         {/* Restructured Template Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <span className={styles.eyebrow}>// Our Process</span>
+            <span className={styles.eyebrow}>{"// Our Process"}</span>
             <h2 className={styles.title}>How We Work</h2>
             <p className={styles.subtitle}>
               A clear, repeatable process that turns your business goals into digital marketing results — 
@@ -40,7 +47,7 @@ const HowWeWorkSection = () => {
           </div>
           <div className={styles.headerRight}>
             <Link href="/contact" className={styles.ctaBtn}>
-              <span>Let's Collaborate</span>
+              <span>Let&apos;s Collaborate</span>
               <ArrowRight size={16} className={styles.btnArrow} />
             </Link>
           </div>

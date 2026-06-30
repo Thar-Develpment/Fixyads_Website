@@ -191,9 +191,9 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 0.8rem 2.2rem;
-  background: linear-gradient(135deg, #F4521E 0%, #FF7043 100%); /* Solid orange gradient */
+  background: var(--accent); /* Unified brand orange */
   color: #FFFFFF !important;
-  border-radius: 8px; /* Sleek 8px border-radius as requested */
+  border-radius: 999px; /* Unified pill shape */
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
@@ -228,11 +228,9 @@
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, #FF7043 0%, #F4521E 100%); /* Solid orange gradient hover */
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 
-    0 12px 30px rgba(244, 82, 30, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: #d84315; /* Unified brand orange hover */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(244, 82, 30, 0.5);
   color: #FFFFFF !important;
 }
 

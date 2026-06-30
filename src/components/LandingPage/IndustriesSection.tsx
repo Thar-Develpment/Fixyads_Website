@@ -10,32 +10,42 @@ import {
   FaBriefcase,
   FaBoxOpen,
   FaMapMarkedAlt,
-  FaArrowRight
+  FaArrowRight,
 } from 'react-icons/fa';
 import styles from './IndustriesSection.module.css';
 
 const industries = [
-  { name: 'E-Commerce Brands', icon: <FaShoppingCart /> },
+  { name: 'E-Commerce Brands',           icon: <FaShoppingCart /> },
   { name: 'Manufacturing & Enterprises', icon: <FaIndustry /> },
-  { name: 'Healthcare & Hospitals', icon: <FaHospital /> },
+  { name: 'Healthcare & Hospitals',      icon: <FaHospital /> },
   { name: 'Retail, Cafés & Restaurants', icon: <FaUtensils /> },
-  { name: 'Educational Institutions', icon: <FaGraduationCap /> },
-  { name: 'Service-Based Businesses', icon: <FaBriefcase /> },
-  { name: 'FMCG Brands', icon: <FaBoxOpen /> },
-  { name: 'Multi-Location Businesses', icon: <FaMapMarkedAlt /> },
+  { name: 'Educational Institutions',    icon: <FaGraduationCap /> },
+  { name: 'Service-Based Businesses',    icon: <FaBriefcase /> },
+  { name: 'FMCG Brands',                icon: <FaBoxOpen /> },
+  { name: 'Multi-Location Businesses',   icon: <FaMapMarkedAlt /> },
 ];
 
 const IndustriesSection = () => {
   return (
     <section className={styles.section}>
+      {/* Extra ambient orbs */}
+      <div className={styles.bgStack}>
+        <div className={styles.bgColorOverlay}></div>
+        <div className={styles.bgGrid}></div>
+        <div className={styles.glowBlobA}></div>
+        <div className={styles.glowBlobB}></div>
+      </div>
+
       <div className={styles.container}>
+
+        {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>Industries We Serve</span>
             <h2 className={styles.title}>Industries We Help Scale</h2>
             <p className={styles.subtitle}>
-              From startups to enterprises, we deliver tailored strategies that drive 
-              measurable growth across every industry vertical.
+              From startups to enterprises, we deliver tailored strategies that
+              drive measurable growth across every industry vertical.
             </p>
           </div>
           <div className={styles.headerRight}>
@@ -46,6 +56,7 @@ const IndustriesSection = () => {
           </div>
         </div>
 
+        {/* Pills */}
         <div className={styles.pillsWrap}>
           {industries.map((item, index) => (
             <div key={index} className={styles.pill}>
@@ -54,6 +65,7 @@ const IndustriesSection = () => {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

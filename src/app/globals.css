@@ -3,6 +3,12 @@
    ========================================================================= */
 
 :root {
+  /* New Theme colors from approved plan */
+  --theme-teal-dark: #0f2a24;
+  --theme-teal-light: #1b433b;
+  --theme-orange: #F48C06;
+  --theme-sage: #a3b8b0;
+
   /* Brand Colors - Directly matched to the new Fixyads identity */
   --primary: #0B1C3D;
   --primary-hover: #152C5B;
@@ -254,8 +260,8 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--btn-radius);
+  padding: 0.75rem 2rem; /* Unified premium padding */
+  border-radius: 999px; /* Unified pill shape */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease-out; /* Clean, fast transitions */
@@ -264,23 +270,19 @@ p {
   user-select: none;
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
-  /* Gradient styling matching the new brand accent orange */
-  background-image: linear-gradient(to top, #F4521E, #FF7043);
-  /* Fallback for older browsers (solid color) */
-  background-color: #F4521E;
+  background-color: var(--accent);
 }
 
 .btn:hover{
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  background-color: #d84315; /* Unified hover color */
 }
-
-
 
 /* Accessible Focus Ring for Buttons */
 .btn:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
-  border-radius: var(--radius);
+  border-radius: 999px;
 }
 
 /* Primary: Matches the logo's main color */
@@ -290,35 +292,32 @@ p {
 }
 
 .btn-primary:hover {
-  background-color: #d84315; /* Darker vibrant brand orange instead of deep blue to prevent invisibility */
+  background-color: #d84315; /* Unified hover color */
 }
 
-/* Secondary: Uses the complementary purple for visual diversity */
+/* Secondary: Uses the complementary white/grey style */
 .btn-secondary {
   color: #111;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--btn-radius);
+  padding: 0.75rem 2rem; /* Unified premium padding */
+  border-radius: 999px; /* Unified pill shape */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease-out; /* Clean, fast transitions */
-  border: 1px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   user-select: none;
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
-  /* Gradient styling */
-  background-image: linear-gradient(to top, #e1e1e1, #fff);
-  /* Fallback for older browsers (solid color) */
   background-color: #fff;
 }
 
 .btn-secondary:hover {
-  /* Slightly darker secondary color for hover */
-  color:#111;
-  background-color: #fff;
+  color: #111;
+  background-color: #f3f4f6; /* Slightly darker hover state */
+  transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -439,4 +438,170 @@ button {
 [class*="dropdownMenu"] a {
   font-family: var(--font-heading), 'Space Grotesk', sans-serif;
   font-weight: 500;
+}
+
+
+/* =========================================================================
+   SITE-WIDE BUTTON UNIFICATION (Match IndustriesSection Button Style)
+   ========================================================================= */
+
+/* 1. SOLID / PRIMARY BUTTON OVERRIDES */
+body .btn-primary,
+body .btn:not([class*="secondary"]):not([class*="outline"]):not([class*="play"]):not([class*="ghost"]):not([class*="mobileMenuBtn"]):not([class*="logout"]):not([class*="delete"]),
+body [class*="primaryBtn"]:not([class*="secondaryBtn"]),
+body [class*="orangeCtaBtn"],
+body [class*="ctaBtn"]:not([class*="secondary"]):not([class*="secondaryBtn"]),
+body [class*="viewAllBtn"],
+body [class*="ctaBannerBtn"],
+body [class*="ctaButton"],
+body [class*="submitBtn"],
+body [class*="btn-rev-primary"],
+body [class*="servicebtn"],
+body [class*="uniqueBtn"],
+body [class*="emptyBtn"],
+body button[class*="button"]:not([class*="input"]):not([class*="select"]):not([class*="textarea"]),
+body a[class*="button"]:not([class*="input"]):not([class*="select"]):not([class*="textarea"]) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  background: linear-gradient(135deg, #F4521E 0%, #FF7043 100%) !important; /* Solid orange gradient */
+  border: 1px solid transparent !important;
+  border-radius: 8px !important; /* Sleek 8px to avoid bubble shape */
+  padding: 0.8rem 2.2rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  box-shadow: 0 8px 25px rgba(244, 82, 30, 0.35) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 10 !important;
+  opacity: 1 !important;
+}
+
+/* 2. TRANSPARENT / OUTLINE / SECONDARY BUTTON OVERRIDES */
+body .btn-secondary,
+body .btn-outline,
+body [class*="secondaryBtn"],
+body [class*="ghostButton"],
+body [class*="logoutBtn"],
+body [class*="deleteBtn"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  /* Retain original background, color, borders, and shadows (transparency remains!) */
+  border-radius: 8px !important; /* Sleek 8px to match */
+  padding: 0.8rem 2.2rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 10 !important;
+  opacity: 1 !important;
+}
+
+/* 3. REFLECTIVE LIQUID SHIMMER GLASS SHINE EFFECT (All primary/secondary buttons) */
+body .btn-primary::before,
+body .btn:not([class*="play"]):not([class*="mobileMenuBtn"])::before,
+body [class*="primaryBtn"]::before,
+body [class*="secondaryBtn"]::before,
+body [class*="orangeCtaBtn"]::before,
+body [class*="ctaBtn"]::before,
+body [class*="viewAllBtn"]::before,
+body [class*="ctaBannerBtn"]::before,
+body [class*="ctaButton"]::before,
+body [class*="submitBtn"]::before,
+body [class*="btn-rev-primary"]::before,
+body [class*="servicebtn"]::before,
+body [class*="uniqueBtn"]::before,
+body [class*="emptyBtn"]::before,
+body button[class*="button"]::before,
+body a[class*="button"]::before,
+body [class*="logoutBtn"]::before,
+body [class*="deleteBtn"]::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  ) !important;
+  transition: all 0.6s ease !important;
+  z-index: -1 !important;
+}
+
+body .btn-primary:hover::before,
+body .btn:not([class*="play"]):not([class*="mobileMenuBtn"]):hover::before,
+body [class*="primaryBtn"]:hover::before,
+body [class*="secondaryBtn"]:hover::before,
+body [class*="orangeCtaBtn"]:hover::before,
+body [class*="ctaBtn"]:hover::before,
+body [class*="viewAllBtn"]:hover::before,
+body [class*="ctaBannerBtn"]:hover::before,
+body [class*="ctaButton"]:hover::before,
+body [class*="submitBtn"]:hover::before,
+body [class*="btn-rev-primary"]:hover::before,
+body [class*="servicebtn"]:hover::before,
+body [class*="uniqueBtn"]:hover::before,
+body [class*="emptyBtn"]:hover::before,
+body button[class*="button"]:hover::before,
+body a[class*="button"]:hover::before,
+body [class*="logoutBtn"]:hover::before,
+body [class*="deleteBtn"]:hover::before {
+  left: 100% !important;
+}
+
+/* 4. HOVER TRANSFORM & INTERACTION STYLES */
+/* Solid Buttons Hover */
+body .btn-primary:hover,
+body .btn:not([class*="secondary"]):not([class*="outline"]):not([class*="play"]):not([class*="ghost"]):not([class*="mobileMenuBtn"]):not([class*="logout"]):not([class*="delete"]):hover,
+body [class*="primaryBtn"]:not([class*="secondaryBtn"]):hover,
+body [class*="orangeCtaBtn"]:hover,
+body [class*="ctaBtn"]:not([class*="secondary"]):not([class*="secondaryBtn"]):hover,
+body [class*="viewAllBtn"]:hover,
+body [class*="ctaBannerBtn"]:hover,
+body [class*="ctaButton"]:hover,
+body [class*="submitBtn"]:hover,
+body [class*="btn-rev-primary"]:hover,
+body [class*="servicebtn"]:hover,
+body [class*="uniqueBtn"]:hover,
+body [class*="emptyBtn"]:hover,
+body button[class*="button"]:not([class*="input"]):not([class*="select"]):not([class*="textarea"]):hover,
+body a[class*="button"]:not([class*="input"]):not([class*="select"]):not([class*="textarea"]):hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 
+    0 12px 30px rgba(244, 82, 30, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  background: linear-gradient(135deg, #FF7043 0%, #F4521E 100%) !important; /* Inverted gradient on hover */
+}
+
+/* Transparent/Secondary/Admin Buttons Hover */
+body .btn-secondary:hover,
+body .btn-outline:hover,
+body [class*="secondaryBtn"]:hover,
+body [class*="ghostButton"]:hover,
+body [class*="logoutBtn"]:hover,
+body [class*="deleteBtn"]:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+}
+
+/* 5. ARROW TRANSITIONS (Clean slide on hover) */
+body [class*="Arrow"] {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+body [class*="Btn"]:hover [class*="Arrow"],
+body [class*="btn"]:hover [class*="Arrow"],
+body [class*="button"]:hover [class*="Arrow"],
+body [class*="Button"]:hover [class*="Arrow"] {
+  transform: translateX(4px) !important;
 }

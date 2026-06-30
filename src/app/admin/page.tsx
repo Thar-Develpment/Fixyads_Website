@@ -37,6 +37,8 @@ export default function AdminPage() {
         if (result?.error) {
             setError("Invalid password");
             setLoading(false);
+        } else {
+            setLoading(false);
         }
     };
 
@@ -48,12 +50,13 @@ export default function AdminPage() {
                 setMessages(data);
             }
         } catch (e) {
-            console.error("Failed to fetch messages");
+            console.error("Failed to fetch messages", e);
         }
     };
 
     useEffect(() => {
         if (status === "authenticated") {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             fetchMessages();
         }
     }, [status]);
@@ -74,7 +77,7 @@ export default function AdminPage() {
                 ));
             }
         } catch (e) {
-            console.error("Failed to update status");
+            console.error("Failed to update status", e);
         }
     };
 
@@ -89,7 +92,7 @@ export default function AdminPage() {
                 setMessages(messages.filter(msg => msg.id !== id));
             }
         } catch (e) {
-            console.error("Failed to delete message");
+            console.error("Failed to delete message", e);
         }
     };
 

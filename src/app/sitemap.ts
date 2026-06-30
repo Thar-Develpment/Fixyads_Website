@@ -8,37 +8,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "",
     "/services",
     "/courses",
-
     "/services/search-engine-optimization",
     "/services/social-media-marketing",
     "/services/content-branding",
     "/services/web-development",
     "/services/influencer-marketing",
-
     "/courses/digital-marketing",
     "/courses/web-development",
     "/courses/placement-support",
-
     "/about",
     "/blog",
     "/contact",
-    "/portfolio",
-    "/testimonials",
     "/privacy-policy",
     "/terms-of-service",
   ];
 
-  const staticPages = staticRoutes.map((route) => ({
+  const staticPages: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
   }));
 
-  const posts = await getAllPosts();
+  let blogPages: MetadataRoute.Sitemap = [];
 
-  const blogPages = posts.map((post: any) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.modified),
-  }));
+  try {
+    const posts = await getAllPosts();
+    blogPages = posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.modified),
+    }));
+  } catch (error) {
+    console.error("Sitemap: failed to fetch blog posts:", error);
+  }
 
   return [...staticPages, ...blogPages];
 }

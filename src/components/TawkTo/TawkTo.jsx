@@ -6,8 +6,8 @@ export default function TawkTo() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const Tawk_API = window.Tawk_API || {};
-    const Tawk_LoadStart = new Date();
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
 
     (function () {
       const s1 = document.createElement("script");

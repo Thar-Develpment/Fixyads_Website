@@ -34,7 +34,7 @@ const CtaSection = () => {
 
           {/* Subtext */}
           <p className={styles.subtitle}>
-            Partner with FixyAds — a dedicated team driving real, measurable results from SEO and paid ads to full brand transformations.
+            Grow your business with digital marketing services designed to attract the right audience, generate quality leads, and maximize ROI.
           </p>
 
           {/* CTA Buttons */}

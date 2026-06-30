@@ -1,274 +1,206 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Play, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+  Star,
+  ArrowUpRight,
+  Play,
+  Sparkle,
+  ChevronDown,
+  TrendingUp,
+  Users,
+  Target,
+  Rocket,
+} from 'lucide-react';
+import CampaignPulse from './Campaignpulse';
 import styles from './Hero.module.css';
 
-const slides = [
-  {
-    eyebrow: "Digital Marketing & SEO",
-    title: (
-      <>
-        Digital Marketing <br />
-        & SEO Specialists
-      </>
-    ),
-    description: "We help ambitious brands rank #1 and drive organic customers through data-driven search engine optimization, premium performance marketing, and compounding digital authority.",
-    bgImage: "/Hero_images_planner/seo-slide-01.avif",
-    bgImageMobile: "/Hero_images_planner/seo-slide-01-mobile.avif",
-    ctaText: "Get Started Today",
-    ctaLink: "/contact",
-    watchVideo: true,
-    isLight: true // Mark this slide as light theme (white background)
-  },
-  {
-    eyebrow: "Sleek & Premium Web Development",
-    title: (
-      <>
-        Next-Gen Web Design <br />
-        & Fast Development
-      </>
-    ),
-    description: "Building ultra-fast, visually stunning, and highly responsive web applications utilizing modern frameworks, premium design systems, and robust clean code built to convert.",
-    bgImage: "/Hero_images_planner/web-dev-slide-02.avif",
-    bgImageMobile: "/Hero_images_planner/web-dev-slide-02-mobile.avif",
-    ctaText: "Build Your Website",
-    ctaLink: "/services/web-development",
-    watchVideo: true,
-    isLight: true
-  },
-  {
-    eyebrow: "Social Media Marketing (SMM)",
-    title: (
-      <>
-        Grow Your Brand <br />
-        & Social Authority
-      </>
-    ),
-    description: "Supercharge your online presence and engage active audiences with high-ROI social media management, organic growth campaigns, and targeted media placement.",
-    bgImage: "/Hero_images_planner/smm-slide-03.avif",
-    bgImageMobile: "/Hero_images_planner/smm-slide-03-mobile.avif",
-    ctaText: "Explore SMM Plans",
-    ctaLink: "/services/social-media-marketing",
-    watchVideo: false
-  }
-];
-
-const prefersReducedMotion =
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Function to start the auto-play timer
-  const startTimer = () => {
-    stopTimer();
-    timerRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000); // 6 seconds per slide for highly natural pacing
+  const scrollToNext = () => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
-
-  // Function to stop the auto-play timer
-  const stopTimer = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-  };
-
-  // Handle manual navigation to Next slide
-  const handleNext = () => {
-    stopTimer();
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-    startTimer();
-  };
-
-  // Handle manual navigation to Prev slide
-  const handlePrev = () => {
-    stopTimer();
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    startTimer();
-  };
-
-  // Handle manual dot navigation
-  const handleDotClick = (index: number) => {
-    stopTimer();
-    setCurrentSlide(index);
-    startTimer();
-  };
-
-  // Initialize auto-play timer on component mount
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    startTimer();
-    return () => stopTimer();
-  }, []);
 
   return (
-    <section className={`${styles.hero} ${slides[currentSlide].isLight ? styles.heroLight : ''}`}>
-      {/* ── BACKGROUND STACK (AUTO-CHANGING IMAGES WITH PREMIUM GRADIENT) ── */}
+    <section className={styles.hero}>
+      {/* ── ATMOSPHERE: grid + glow mesh ── */}
       <div className={styles.bgStack}>
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`${styles.bgLayer} ${index === currentSlide ? styles.bgActive : ''}`}
-          >
-            {/* Desktop Image */}
-            <Image
-              src={slide.bgImage}
-              fill
-              priority={index === 0}
-              quality={85}
-              sizes="100vw"
-              alt=""
-              className={`${styles.heroImage} ${styles.desktopImg}`}
-            />
-            {/* Mobile Image */}
-            <Image
-              src={slide.bgImageMobile || slide.bgImage}
-              fill
-              priority={index === 0}
-              quality={85}
-              sizes="100vw"
-              alt=""
-              className={`${styles.heroImage} ${styles.mobileImg}`}
-            />
-          </div>
-        ))}
-        {/* Dark brand gradients to ensure exceptional contrast and readability of white text */}
-        <div className={styles.gradientOverlay}></div>
-        <div className={styles.vignette}></div>
-
-        {/* ── SLIDER CONTROLS BAR (DOTS & ARROWS) NESTED INSIDE BGSTACK ── */}
-        <div className={styles.controlBar}>
-          <div className={styles.dotsWrap}>
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`${styles.dot} ${index === currentSlide ? styles.dotActive : ''}`}
-                aria-label={`Go to slide ${index + 1}`}
-              >
-                <span className={styles.dotFill}></span>
-              </button>
-            ))}
-          </div>
-
-          <div className={styles.counter}>
-            <span className={styles.counterCurrent}>0{currentSlide + 1}</span>
-            <span className={styles.counterSep}>/</span>
-            <span className={styles.counterTotal}>0{slides.length}</span>
-          </div>
-
-          <div className={styles.arrows}>
-            <button
-              onClick={handlePrev}
-              className={styles.arrowBtn}
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={handleNext}
-              className={styles.arrowBtn}
-              aria-label="Next slide"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
+        <div className={styles.bgColorOverlay}></div>
+        <div className={styles.bgGrid}></div>
+        <div className={styles.glowBlobA}></div>
+        <div className={styles.glowBlobB}></div>
       </div>
 
       <div className={styles.container}>
-        {/* ── CONTENT OVERLAY CARD ── */}
-        <div className={styles.leftCol}>
-          {/* Slide Eyebrow / Award Badge */}
-          <div className={styles.awardBadge}>
-            <span className={styles.badgeDot}></span>
-            <span className={styles.badgeText}>
-              {slides[currentSlide].eyebrow}
-            </span>
-          </div>
+        <div className={styles.heroGrid}>
 
-          {/* Slide Title */}
-          <div className={styles.titleContainer}>
-            {slides.map((slide, index) => (
-              <h1
-                key={index}
-                className={`${styles.title} ${index === currentSlide ? styles.titleActive : styles.titleHidden}`}
-              >
-                {slide.title}
-              </h1>
-            ))}
-          </div>
+          {/* ── LEFT COLUMN: CONTENT ── */}
+          <div className={styles.leftCol}>
 
-          {/* Slide Description */}
-          <div className={styles.descContainer}>
-            {slides.map((slide, index) => (
-              <p
-                key={index}
-                className={`${styles.description} ${index === currentSlide ? styles.descActive : styles.descHidden}`}
-              >
-                {slide.description}
-              </p>
-            ))}
-          </div>
-
-          {/* Slide Actions / Buttons */}
-          <div className={styles.actions}>
-            <Link href={slides[currentSlide].ctaLink} className={styles.primaryButton}>
-              {slides[currentSlide].ctaText}
-            </Link>
-
-            {slides[currentSlide].watchVideo && (
-              <Link href="/about" className={styles.ghostButton}>
-                <div className={styles.playCircle}>
-                  <Play size={14} className={styles.playIcon} />
-                </div>
-                <span className={styles.ghostText}>Watch Video</span>
-              </Link>
-            )}
-          </div>
-
-          {/* Universal Trust Bar (Remains stable at the bottom to prevent visual jumping) */}
-          <div className={styles.trustBar}>
             <div className={styles.ratingBlock}>
               <div className={styles.stars}>
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className={styles.starIcon} />
+                  <Star key={i} size={14} className={styles.starIcon} />
                 ))}
               </div>
               <span className={styles.ratingText}>
-                4.8/5 <span className={styles.ratingMuted}>by Customer Reviews</span>
+                5.0 Rating <span className={styles.ratingMuted}>· 500+ Happy Clients</span>
               </span>
             </div>
 
-            <div className={styles.teamBlock}>
-              <div className={styles.teamAvatars}>
-                {['Tham', 'aruna', 'praveen', 'selva'].map((img, i) => (
-                  <div key={i} className={styles.teamAvatar}>
-                    <img
-                      src={`/Team/${img}.png`}
-                      alt="Team Member"
-                      className={styles.teamAvatarImg}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://i.pravatar.cc/100?img=${i + 10}`;
-                      }}
-                    />
-                  </div>
-                ))}
+            <h1 className={styles.title}>
+              AI-Based <span className={styles.titleAccent}>Digital </span>
+               Marketing Company
+            </h1>
+
+            <div className={styles.descWrapper}>
+              <p className={styles.description}>
+                We are the best digital marketing company providing 
+                affordable services to boost online visibility, generate 
+                high-quality leads, and increase revenue.
+              </p>
+            </div>
+
+            <div className={styles.actions}>
+              <Link href="/contact" className={styles.primaryBtn}>
+                <Sparkle size={18} className={styles.primaryIcon} />
+                <span>Get Free Audit</span>
+                <ArrowUpRight size={18} className={styles.primaryArrow} />
+              </Link>
+
+              <Link href="/services" className={styles.playBtn}>
+                <span className={styles.playText}>View Services</span>
+                <ArrowUpRight size={25} className={styles.primaryArrow}/>
+              </Link>
+            </div>
+
+            <div className={styles.statsRow}>
+              <div className={styles.statCol}>
+                <span className={styles.statNumber}>25M+</span>
+                <span className={styles.statLabel}>Impressions Generated</span>
               </div>
-              <div className={styles.teamInfo}>
-                <span className={styles.teamLabel}>Team Members</span>
-                <span className={styles.teamValue}>Active Experts</span>
+              <div className={styles.statDivider} />
+              <div className={styles.statCol}>
+                <span className={styles.statNumber}>150+</span>
+                <span className={styles.statLabel}>Successful Campaigns</span>
+              </div>
+              <div className={styles.statDivider} />
+              <div className={styles.statCol}>
+                <span className={styles.statNumber}>98%</span>
+                <span className={styles.statLabel}>Client Retention Rate</span>
               </div>
             </div>
+
           </div>
+
+          {/* ── RIGHT COLUMN: LIVE DASHBOARD MOCK ── */}
+          {/* <div className={styles.rightCol}>
+            <div className={styles.dashboardMock}>
+
+              <div className={styles.panel}>
+                <div className={styles.panelHeader}>
+                  <span className={styles.panelLabel}>
+                    <span className={styles.liveDot}></span>
+                    Live Performance
+                  </span>
+                  <span className={styles.panelChange}>+182%</span>
+                </div>
+
+                <div className={styles.growthChart}>
+                  <svg
+                    viewBox="0 0 360 140"
+                    className={styles.growthSvg}
+                    preserveAspectRatio="none"
+                  >
+                    <defs>
+                      <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="lineStroke" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stopColor="var(--signal)" />
+                        <stop offset="100%" stopColor="var(--accent)" />
+                      </linearGradient>
+                    </defs>
+
+                    <path
+                      d="M0,120 C40,108 60,92 90,96 C120,100 140,70 170,64 C200,58 220,36 250,30 C280,24 310,14 340,8 L360,4 L360,140 L0,140 Z"
+                      fill="url(#areaFill)"
+                      className={styles.growthArea}
+                    />
+
+                    <path
+                      d="M0,120 C40,108 60,92 90,96 C120,100 140,70 170,64 C200,58 220,36 250,30 C280,24 310,14 340,8"
+                      fill="none"
+                      stroke="url(#lineStroke)"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      className={styles.growthLine}
+                    />
+
+                    <circle cx="0" cy="120" r="4" className={styles.growthDot} style={{ animationDelay: '0.4s' }} />
+                    <circle cx="90" cy="96" r="4" className={styles.growthDot} style={{ animationDelay: '0.7s' }} />
+                    <circle cx="170" cy="64" r="4" className={styles.growthDot} style={{ animationDelay: '1s' }} />
+                    <circle cx="250" cy="30" r="4" className={styles.growthDot} style={{ animationDelay: '1.3s' }} />
+                  </svg>
+
+                  <div className={styles.rocketWrap}>
+                    <Rocket size={16} className={styles.rocketIcon} />
+                  </div>
+                </div>
+
+                <div className={styles.panelFooter}>
+                  <span>Jan</span>
+                  <span>Feb</span>
+                  <span>Mar</span>
+                  <span>Apr</span>
+                  <span>May</span>
+                  <span>Jun</span>
+                </div>
+              </div>
+
+              <div className={`${styles.badge} ${styles.badgeTraffic}`}>
+                <span className={styles.badgeIconTraffic}>
+                  <TrendingUp size={14} />
+                </span>
+                Traffic +180%
+              </div>
+
+              <div className={`${styles.badge} ${styles.badgeLeads}`}>
+                <span className={styles.badgeIconLeads}>
+                  <Users size={14} />
+                </span>
+                Leads +240%
+              </div>
+
+              <div className={`${styles.badge} ${styles.badgeRoi}`}>
+                <span className={styles.badgeIconRoi}>
+                  <Target size={14} />
+                </span>
+                ROI 4.2x
+              </div>
+
+            </div>
+          </div> */}
+
+          <div className={styles.rightCol}>
+            <CampaignPulse />
+          </div>
+
         </div>
+      </div>
+
+      {/* ── BOTTOM FADE ── */}
+      <div className={styles.bottomFade}>
+        <div className={styles.bottomLine}></div>
+        <button
+          type="button"
+          className={styles.centerChevron}
+          aria-label="Scroll to next section"
+          onClick={scrollToNext}
+        >
+          <ChevronDown size={18} />
+        </button>
       </div>
     </section>
   );

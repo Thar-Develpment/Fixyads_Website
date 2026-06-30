@@ -1,5 +1,8 @@
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/wp-rest';
+import Image from 'next/image';
+import { getPostsSafe, getFeaturedImageUrl, estimateReadTime } from '@/lib/wp-rest';
+import { sanitizePlainText } from '@/lib/sanitize';
+import type { WordPressPost } from '@/types/wordpress';
 import styles from './BlogPosts.module.css';
 import { ArrowRight, Clock, ChevronRight } from 'lucide-react';
 
@@ -18,10 +21,9 @@ function limitTitle(text: string, limit = 10) {
 const categories = ['SEO', 'Performance', 'Content'];
 
 const BlogPosts = async () => {
-  let posts: any[] = [];
+  let posts: WordPressPost[] = [];
   try {
-    const all = await getAllPosts();
-    posts = all.slice(0, 3);
+    posts = (await getPostsSafe(3));
   } catch {
     // silently fall back to empty
   }
@@ -58,18 +60,21 @@ const BlogPosts = async () => {
 
   const displayPosts = posts.length >= 3 ? posts : fallback;
   const [featured, ...sidePosts] = displayPosts;
-  const featuredImage = featured._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+  const featuredImage = 'slug' in featured && featured._embedded
+    ? getFeaturedImageUrl(featured as WordPressPost)
+    : undefined;
   const featuredHref = featured.slug ? `/blog/${featured.slug}` : '/blog';
-  const featuredCategory = featured.category || categories[0];
+  const featuredCategory = 'category' in featured ? featured.category : categories[0];
 
   return (
     <section className={styles.section}>
+      
       <div className={styles.container}>
 
         {/* ── Header Row ── */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <span className={styles.eyebrow}>// Resources &amp; Insights</span>
+            <span className={styles.eyebrow}>{"// Resources & Insights"}</span>
             <h2 className={styles.title}>
               Stay Ahead with<br />
               <span className={styles.titleAccent}>Expert Insights</span>
@@ -93,9 +98,11 @@ const BlogPosts = async () => {
           <Link href={featuredHref} className={styles.featuredCard}>
             <div className={styles.featuredImgWrap}>
               {featuredImage ? (
-                <img
+                <Image
                   src={featuredImage}
-                  alt={featured.title.rendered.replace(/<[^>]+>/g, '')}
+                  alt={sanitizePlainText(featured.title.rendered)}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.featuredImg}
                 />
               ) : (
@@ -108,14 +115,17 @@ const BlogPosts = async () => {
               <span className={styles.categoryBadge}>{featuredCategory}</span>
               <div className={styles.featuredReadTime}>
                 <Clock size={12} />
-                <span>{featured.readTime || '5 Min Read'}</span>
+                <span>
+                  {'readTime' in featured && featured.readTime
+                    ? featured.readTime
+                    : estimateReadTime(featured.excerpt.rendered)}
+                </span>
               </div>
             </div>
             <div className={styles.featuredBody}>
-              <h3
-                className={styles.featuredTitle}
-                dangerouslySetInnerHTML={{ __html: featured.title.rendered }}
-              />
+              <h3 className={styles.featuredTitle}>
+                {sanitizePlainText(featured.title.rendered)}
+              </h3>
               <p className={styles.featuredExcerpt}>
                 {limitWords(featured.excerpt.rendered, 24)}
               </p>
@@ -130,16 +140,23 @@ const BlogPosts = async () => {
 
           {/* Side Cards Stack */}
           <div className={styles.sideStack}>
-            {sidePosts.map((post: any, i: number) => {
-              const img = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+            {sidePosts.map((post, i: number) => {
+              const wpPost = post as WordPressPost;
+              const img = wpPost._embedded ? getFeaturedImageUrl(wpPost) : undefined;
               const href = post.slug ? `/blog/${post.slug}` : '/blog';
-              const cat = post.category || categories[i + 1] || 'SEO';
+              const cat = 'category' in post ? post.category : categories[i + 1] || 'SEO';
 
               return (
                 <Link href={href} key={post.id} className={styles.sideCard}>
                   <div className={styles.sideImgWrap}>
                     {img ? (
-                      <img src={img} alt={post.title.rendered.replace(/<[^>]+>/g, '')} className={styles.sideImg} />
+                      <Image
+                        src={img}
+                        alt={sanitizePlainText(post.title.rendered)}
+                        fill
+                        sizes="200px"
+                        className={styles.sideImg}
+                      />
                     ) : (
                       <div className={styles.sidePlaceholder}>
                         <div className={styles.placeholderOrbSmall} />
@@ -149,17 +166,16 @@ const BlogPosts = async () => {
                     <span className={styles.sideCategoryBadge}>{cat}</span>
                   </div>
                   <div className={styles.sideBody}>
-                    <h3
-                      className={styles.sideTitle}
-                      dangerouslySetInnerHTML={{ __html: limitTitle(post.title.rendered) }}
-                    />
+                    <h3 className={styles.sideTitle}>
+                      {limitTitle(sanitizePlainText(post.title.rendered))}
+                    </h3>
                     <p className={styles.sideExcerpt}>
                       {limitWords(post.excerpt.rendered, 14)}
                     </p>
                     <div className={styles.sideMeta}>
                       <span className={styles.sideReadTime}>
                         <Clock size={11} />
-                        {post.readTime || '5 Min Read'}
+                        {('readTime' in post && post.readTime) || estimateReadTime(post.excerpt.rendered)}
                       </span>
                       <span className={styles.sideArrow}>
                         <ArrowRight size={14} />

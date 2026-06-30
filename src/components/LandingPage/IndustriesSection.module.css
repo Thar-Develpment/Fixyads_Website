@@ -1,235 +1,307 @@
 /* =========================================================================
-   INDUSTRIES SECTION
+   INDUSTRIES SECTION — BLUE GLASSMORPHISM + CHECKER PATTERN
    ========================================================================= */
 
+/* ── Section canvas ───────────────────────────────────── */
 .section {
-  padding: 5.5rem 0 6.5rem;
-  background: linear-gradient(135deg, #091629 0%, #0B1C3D 50%, #091629 100%);
-  /* Premium dark navy gradient */
   position: relative;
+  padding: 6rem 0 7rem;
+  background-color: #1e3a8a;
+  background-image:
+    linear-gradient(135deg, #1e40af 0%, #1e3a8a 40%, #1e2d6b 100%);
   overflow: hidden;
 }
 
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2.5rem;
+/* ── Checker pattern overlay ──────────────────────────── */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 40%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
+/* ── ATMOSPHERE ── */
+.bgStack {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bgColorOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary);
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 60% 30%, black 30%, transparent 75%);
+}
+
+.glowBlobA {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  top: -120px;
+  right: 10%;
+  background: radial-gradient(circle, rgba(244, 140, 6, 0.22), transparent 70%);
+  filter: blur(20px);
+}
+
+.glowBlobB {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  bottom: -140px;
+  left: 6%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.16), transparent 70%);
+  filter: blur(20px);
+}
+
+/* ── Ambient glow orbs ────────────────────────────────── */
+.orb1, .orb2, .orb3, .orb4 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 1;
+}
+.orb1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(96,165,250,0.35) 0%, transparent 70%);
+  top: -180px; right: -80px;
+}
+.orb2 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 70%);
+  bottom: -120px; left: -60px;
+}
+.orb3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(147,197,253,0.2) 0%, transparent 70%);
+  top: 30%; left: 25%;
+}
+.orb4 {
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(244,82,30,0.18) 0%, transparent 70%);
+  bottom: 10%; right: 15%;
+}
+
+/* ── Container ────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Header ───────────────────────────────────────────── */
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Aligns button to the top as requested! */
-  text-align: left;
-  max-width: 100%;
-  margin: 0 auto 3.5rem;
-  gap: 3rem;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  gap: 2rem;
   width: 100%;
 }
 
-.headerLeft {
-  max-width: 760px;
-}
+.headerLeft { max-width: 640px; }
+.headerRight { flex-shrink: 0; padding-bottom: 6rem; }
 
-.headerRight {
-  flex-shrink: 0;
-  margin-top: 0.5rem; /* Aligns visually with the top title baseline */
-}
-
+/* Eyebrow */
 .eyebrow {
-  display: block;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.title {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.25;
-  color: #FFFFFF;
-  /* High-contrast white */
+  color: #93c5fd;
   margin-bottom: 1rem;
 }
-
-.subtitle {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.65);
-  /* Soft gray on dark background */
-  margin-bottom: 0;
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 10px rgba(96,165,250,0.9);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.65); }
 }
 
-/* Pills Wrap - Center aligned flex wrap */
+/* Title */
+.title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: rgba(186,219,255,0.75);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── CTA button ───────────────────────────────────────── */
+.uniqueBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.78rem 1.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff !important;
+  background: #F4521E;
+  border: 1px solid rgba(244,82,30,0.5);
+  box-shadow: 0 4px 24px rgba(244,82,30,0.4), 0 1px 4px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.uniqueBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.55s ease;
+}
+.uniqueBtn:hover::before { background-position: -100% 0; }
+.uniqueBtn:hover {
+  transform: translateY(-2px);
+  background: #e0461a;
+  box-shadow: 0 8px 32px rgba(244,82,30,0.55), 0 2px 8px rgba(0,0,0,0.2);
+}
+.btnArrow {
+  transition: transform 0.3s ease;
+  font-size: 0.85rem;
+}
+.uniqueBtn:hover .btnArrow { transform: translateX(5px); }
+
+/* ── Pills wrap ───────────────────────────────────────── */
 .pillsWrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
-  max-width: 1050px;
-  margin: 0 auto;
+  gap: 1rem;
   position: relative;
   z-index: 10;
 }
 
-/* Premium Dark Pill Badge */
+/* ── Glass pill ───────────────────────────────────────── */
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.75rem 1.5rem;
+  gap: 0.75rem;
+  padding: 0.78rem 1.5rem;
   border-radius: 999px;
-  /* Pill design */
-  background: rgba(255, 255, 255, 0.03);
-  /* Soft translucent black/white */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   cursor: default;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Blue-tinted glassmorphism */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.2),
+    0 1px 0 rgba(255,255,255,0.12) inset;
+
+  transition:
+    transform 0.32s cubic-bezier(0.16,1,0.3,1),
+    box-shadow 0.32s cubic-bezier(0.16,1,0.3,1),
+    background 0.32s ease,
+    border-color 0.32s ease;
 }
 
 .pill:hover {
-  transform: translateY(-3px) scale(1.03);
-  background: rgba(255, 255, 255, 0.08);
-  /* Glow backplane */
-  border-color: rgba(244, 82, 30, 0.4);
-  /* Glow border orange */
+  transform: translateY(-4px) scale(1.04);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(147,197,253,0.5);
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(244, 82, 30, 0.2);
+    0 16px 40px rgba(0,0,0,0.3),
+    0 0 0 1.5px rgba(96,165,250,0.4),
+    0 0 24px rgba(96,165,250,0.2),
+    0 1px 0 rgba(255,255,255,0.2) inset;
 }
 
+/* Icon */
 .icon {
-  font-size: 1.15rem;
-  color: var(--accent);
-  /* High-visibility brand orange #F4521E */
+  font-size: 1rem;
+  color: #93c5fd;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), color 0.3s ease;
+  flex-shrink: 0;
 }
-
 .pill:hover .icon {
-  transform: scale(1.15) rotate(-3deg);
+  transform: scale(1.2) rotate(-5deg);
+  color: #60a5fa;
 }
 
+/* Label */
 .name {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  /* Pure white text */
+  color: rgba(255,255,255,0.9);
   letter-spacing: -0.01em;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
+.pill:hover .name { color: #fff; }
 
-.pill:hover .name {
-  color: rgba(255, 255, 255, 0.9); /* Prevent text color change on hover */
-}
-
-.uniqueBtn {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  background: linear-gradient(135deg, #F4521E 0%, #FF7043 100%) !important; /* Solid orange gradient */
-  border: 1px solid transparent !important;
-  border-radius: 8px !important; /* Reduced border-radius (sleek 8px) to avoid "bubble" circle shape */
-  padding: 0.8rem 2.2rem !important;
-  font-size: 0.95rem !important;
-  font-weight: 600 !important;
-  color: #FFFFFF !important;
-  text-decoration: none !important;
-  box-shadow: 0 8px 25px rgba(244, 82, 30, 0.35) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  z-index: 10 !important; /* Ensure it floats on top of the container box border mask */
-  opacity: 1 !important;
-}
-
-/* Unique reflective liquid shimmer glass shine effect */
-.uniqueBtn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
-  transition: all 0.6s ease;
-  z-index: -1;
-}
-
-.uniqueBtn:hover::before {
-  left: 100%;
-}
-
-.uniqueBtn:hover {
-  transform: translateY(-3px) scale(1.03) !important;
-  box-shadow: 
-    0 12px 30px rgba(244, 82, 30, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
-  background: linear-gradient(135deg, #FF7043 0%, #F4521E 100%) !important; /* Static orange gradients on hover */
-}
-
-.btnArrow {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-}
-
-.uniqueBtn:hover .btnArrow {
-  transform: translateX(5px);
-}
-
-/* =========================================================================
-   RESPONSIVE
-   ========================================================================= */
-@media (max-width: 768px) {
-  .section {
-    padding: 4.5rem 0 5rem;
-  }
-
-  .container {
-    padding: 0 1.5rem;
-  }
-
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1024px) {
   .header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
+  .headerRight { width: 100%; }
+  .uniqueBtn { width: 100%; justify-content: center; }
+}
 
-  .headerRight {
-    width: 100%;
-  }
+@media (max-width: 640px) {
+  .section { padding: 4rem 0 5rem; }
+  .container { padding: 0 1.25rem; }
+  .pillsWrap { gap: 0.75rem; }
+  .pill { padding: 0.65rem 1.15rem; gap: 0.6rem; }
+  .name { font-size: 0.86rem; }
+}
 
-  .uniqueBtn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .pillsWrap {
-    gap: 0.85rem;
-  }
-
-  .pill {
-    padding: 0.65rem 1.25rem;
-    gap: 0.75rem;
-  }
-
-  .name {
-    font-size: 0.9rem;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow::before { animation: none; }
+  .pill, .uniqueBtn, .icon { transition: none; }
 }

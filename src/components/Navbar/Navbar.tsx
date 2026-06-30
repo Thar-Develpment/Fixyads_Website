@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Mail, Facebook, Instagram, Linkedin, Phone, ArrowRight } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
@@ -55,6 +54,7 @@ const Navbar = () => {
 
   // Close menu & dropdown on route change
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
     setOpenDropdown(null);
   }, [pathname]);
@@ -86,59 +86,12 @@ const Navbar = () => {
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${visible ? '' : styles.hidden}`}>
-      <div className={styles.floatingCard} ref={navRef}>
-        
-        {/* ================= TOP UTILITY BAR ================= */}
-        <div className={styles.topBar}>
-          <div className={styles.topBarLeft}>
-            <p className={styles.announcement}>
-              Ready to Scale Your Brand?{' '}
-              <Link href="/contact" className={styles.announcementLink}>
-                Contact Us Today
-              </Link>
-            </p>
-          </div>
-          <div className={styles.topBarRight}>
-            <a href="mailto:fixyads@gmail.com" className={styles.topContactLink}>
-              <Mail size={14} className={styles.contactIcon} />
-              <span>fixyads@gmail.com</span>
-            </a>
-            <div className={styles.socialDivider} />
-            <div className={styles.socialLinks}>
-              <a
-                href="https://www.facebook.com/profile.php?id=61568361441860"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <Facebook size={14} />
-              </a>
-              <a
-                href="https://www.instagram.com/fixyads/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <Instagram size={14} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/fixyads/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={14} />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= MAIN NAVIGATION BAR ================= */}
+      <div className={styles.navWrapper} ref={navRef}>
         <div className={styles.navContainer}>
           
           {/* Logo container */}
           <Link href="/" className={styles.logoLink} onClick={closeAllMenus}>
-            <img src="/Logo/Newlogo.png" alt="FixyAds Logo" className={styles.logoImage} />
+            <img src="/Logo/Newlogo.png" alt="Fixyads Logo" className={styles.logoImage} />
           </Link>
 
           {/* Navigation Links */}
@@ -146,6 +99,10 @@ const Navbar = () => {
             
             <Link href="/" className={styles.navLink} onClick={closeAllMenus}>
               Home
+            </Link>
+
+            <Link href="/about" className={styles.navLink} onClick={closeAllMenus}>
+              About
             </Link>
 
             {/* SERVICES DROPDOWN */}
@@ -218,17 +175,14 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link href="/about" className={styles.navLink} onClick={closeAllMenus}>
-              About
-            </Link>
             <Link href="/blog" className={styles.navLink} onClick={closeAllMenus}>
               Blogs
             </Link>
 
             {/* Mobile-only CTA */}
             <div className={styles.mobileCta}>
-              <Link href="/contact" className="btn btn-primary" onClick={closeAllMenus}>
-                Get a Quote
+              <Link href="/contact" className={styles.orangeCtaBtnMobile} onClick={closeAllMenus}>
+                Contact
               </Link>
             </div>
           </nav>
@@ -236,8 +190,7 @@ const Navbar = () => {
           {/* Right Group: Desktop CTA & Mobile Toggle Button */}
           <div className={styles.rightGroup}>
             <Link href="/contact" className={styles.orangeCtaBtn}>
-              <span>Get a Quote</span>
-              <ArrowRight size={16} className={styles.btnArrow} />
+              Contact
             </Link>
 
             <button
@@ -252,7 +205,6 @@ const Navbar = () => {
           </div>
 
         </div>
-
       </div>
     </header>
   );

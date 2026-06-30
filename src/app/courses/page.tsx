@@ -53,12 +53,12 @@ export default function CoursesIndexPage() {
         <div className={styles.heroOrb2} />
         <div className={styles.heroGrid} />
         <div className={styles.heroInner}>
-          <span className={styles.heroEyebrow}>// Career Programs &amp; Academics</span>
+          <span className={styles.heroEyebrow}>{"// Career Programs & Academics"}</span>
           <h1 className={styles.heroTitle}>
             Industry-Led <span>Training Programs</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            Choose a professional track designed to match today's job market. Every program blends instructor-led lectures, practical assignments, and feedback so you graduate with real-world skills employers recognize.
+            Choose a professional track designed to match today&apos;s job market. Every program blends instructor-led lectures, practical assignments, and feedback so you graduate with real-world skills employers recognize.
           </p>
 
           <div className={styles.heroStats}>
@@ -123,7 +123,7 @@ export default function CoursesIndexPage() {
         <div className={styles.ctaBlock}>
           <div className={styles.ctaOrb} />
           <div className={styles.ctaInner}>
-            <span className={styles.ctaEyebrow}>// Need Career Counseling?</span>
+            <span className={styles.ctaEyebrow}>{"// Need Career Counseling?"}</span>
             <h2 className={styles.ctaTitle}>Talk with Our Academic Advisors</h2>
             <p className={styles.ctaText}>
               Not sure which track fits your career goals? Schedule a free consulting session with our mentors to map out your digital marketing or web engineering roadmap.

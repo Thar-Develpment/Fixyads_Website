@@ -1,10 +1,12 @@
-import { getPostBySlug } from "@/lib/wp-rest";
+import { getPostBySlug, getFeaturedImageUrl, estimateReadTime } from "@/lib/wp-rest";
 import { extractTOC, injectHeadingIds, TOCItem } from "@/lib/toc";
 import { stripHtml, truncateForMeta } from "@/lib/text";
+import { sanitizePostHtml, sanitizePlainText } from "@/lib/sanitize";
 import TableOfContents from "@/components/TableOfContents/TableOfContents";
 import { notFound } from "next/navigation";
 import styles from "./blog.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
 
 import type { Metadata } from "next";
@@ -61,11 +63,12 @@ export default async function BlogDetail({
   if (!post) notFound();
 
   const rawHtml = post.content.rendered;
-  const toc: TOCItem[] = extractTOC(rawHtml);
-  const contentWithIds = injectHeadingIds(rawHtml);
+  const sanitizedHtml = sanitizePostHtml(rawHtml);
+  const toc: TOCItem[] = extractTOC(sanitizedHtml);
+  const contentWithIds = injectHeadingIds(sanitizedHtml);
 
-  const featuredImage =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url as string | undefined;
+  const featuredImage = getFeaturedImageUrl(post);
+  const readTime = estimateReadTime(post.content.rendered);
 
   const publishDate = post.date
     ? new Date(post.date).toLocaleDateString("en-US", {
@@ -82,7 +85,14 @@ export default async function BlogDetail({
       <div className={styles.hero}>
         {featuredImage ? (
           <>
-            <img src={featuredImage} alt={stripHtml(post.title.rendered)} className={styles.heroImg} />
+            <Image
+              src={featuredImage}
+              alt={sanitizePlainText(post.title.rendered)}
+              fill
+              sizes="100vw"
+              className={styles.heroImg}
+              priority
+            />
             <div className={styles.heroOverlay} />
           </>
         ) : (
@@ -100,12 +110,14 @@ export default async function BlogDetail({
             <span className={styles.breadcrumbsSeparator}>/</span>
             <Link href="/blog">Blog</Link>
             <span className={styles.breadcrumbsSeparator}>/</span>
-            <span className={styles.breadcrumbsActive} dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+            <span className={styles.breadcrumbsActive}>
+              {sanitizePlainText(post.title.rendered)}
+            </span>
           </nav>
 
           {/* Meta row */}
           <div className={styles.heroMeta}>
-            <span className={styles.heroCat}>SEO</span>
+            <span className={styles.heroCat}>Blog</span>
             {publishDate && (
               <div className={styles.heroMetaItem}>
                 <Calendar size={13} />
@@ -114,15 +126,14 @@ export default async function BlogDetail({
             )}
             <div className={styles.heroMetaItem}>
               <Clock size={13} />
-              <span>5 Min Read</span>
+              <span>{readTime}</span>
             </div>
           </div>
 
           {/* Title */}
-          <h1
-            className={styles.heroTitle}
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-          />
+          <h1 className={styles.heroTitle}>
+            {sanitizePlainText(post.title.rendered)}
+          </h1>
         </div>
       </div>
 
@@ -168,7 +179,7 @@ export default async function BlogDetail({
             <div className={styles.ctaCard}>
               <div className={styles.ctaCardOrb} />
               <div className={styles.ctaCardGrid} />
-              <span className={styles.ctaEyebrow}>// Free Consultation</span>
+              <span className={styles.ctaEyebrow}>{"// Free Consultation"}</span>
               <h4 className={styles.ctaTitle}>
                 Ready to Grow Your Business?
               </h4>

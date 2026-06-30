@@ -9,6 +9,53 @@
   overflow: hidden;
 }
 
+/* ── ATMOSPHERE ── */
+.bgStack {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bgColorOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary);
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 60% 30%, black 30%, transparent 75%);
+}
+
+.glowBlobA {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  top: -120px;
+  right: 10%;
+  background: radial-gradient(circle, rgba(244, 140, 6, 0.22), transparent 70%);
+  filter: blur(20px);
+}
+
+.glowBlobB {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  bottom: -140px;
+  left: 6%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.16), transparent 70%);
+  filter: blur(20px);
+}
+
 /* Subtle background decoration */
 .section::before {
   content: '';
@@ -59,9 +106,9 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 0.8rem 2.2rem;
-  background: linear-gradient(135deg, #F4521E 0%, #FF7043 100%); /* Solid orange gradient */
+  background: var(--accent); /* Unified brand orange */
   color: #FFFFFF !important;
-  border-radius: 8px; /* Reduced border-radius (sleek 8px) to avoid "bubble" circle shape */
+  border-radius: 999px; /* Unified pill shape */
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
@@ -96,11 +143,10 @@
 }
 
 .ctaBtn:hover {
-  background: linear-gradient(135deg, #FF7043 0%, #F4521E 100%); /* Static orange gradients on hover */
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 
-    0 12px 30px rgba(244, 82, 30, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: #d84315 !important; /* Unified brand orange hover */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(244, 82, 30, 0.5);
+  color: #FFFFFF !important;
 }
 
 .btnArrow {

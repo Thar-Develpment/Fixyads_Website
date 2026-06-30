@@ -1,0 +1,299 @@
+/* ── Scene wrapper — provides the dark canvas for glass ── */
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 3rem 0 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ── Ambient glow orbs (behind the glass card) ────────── */
+.orb1, .orb2, .orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb1 {
+  width: 280px; height: 280px;
+  background: rgba(59, 130, 246, 0.35);
+  top: -40px; left: -60px;
+}
+.orb2 {
+  width: 220px; height: 220px;
+  background: rgba(139, 92, 246, 0.3);
+  bottom: 40px; right: -40px;
+}
+.orb3 {
+  width: 180px; height: 180px;
+  background: rgba(16, 185, 129, 0.2);
+  bottom: 20px; left: 20%;
+}
+
+/* ── Glass card shell — FIXED height so it never resizes ─ */
+.cardShell {
+  position: relative;
+  z-index: 1;
+  height: 380px;                         /* fixed — never changes */
+  border-radius: 24px;
+  padding: 2rem 2rem 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+
+  /* Glassmorphism */
+  background: rgba(15, 22, 40, 0.45);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cardShell:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+.cardShell:active { transform: scale(0.985); }
+.cardShell:focus-visible { outline: 2px solid rgba(96, 165, 250, 0.7); outline-offset: 3px; }
+
+/* Top-edge glass shine */
+.glassHighlight {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Floating trust tags ──────────────────────────────── */
+.floatingTags {
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.tag {
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tagGreen  { background: rgba(16, 135, 96, 0.75);  color: #6ee7b7; border: 1px solid rgba(52,211,153,0.3); margin-top: 12px; }
+.tagViolet { background: rgba(79, 56, 180, 0.75);  color: #c4b5fd; border: 1px solid rgba(167,139,250,0.3); }
+.tagTeal   { background: rgba(13, 100, 90, 0.75);  color: #99f6e4; border: 1px solid rgba(45,212,191,0.3); }
+
+.tagBottom {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+}
+
+/* ── Content area — crossfades, fills fixed card height ── */
+.content {
+  position: absolute;
+  inset: 0;
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+.contentVisible  { opacity: 1; transform: translateY(0); }
+.contentHidden   { opacity: 0; transform: translateY(6px); pointer-events: none; }
+
+/* ── Step label ───────────────────────────────────────── */
+.stepLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  margin: 0 0 0.4rem;
+  max-width: 65%;
+}
+
+/* ── Card title ───────────────────────────────────────── */
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 1rem;
+  line-height: 1.25;
+  max-width: 65%;
+}
+
+/* ── Inner scrollable area ────────────────────────────── */
+.cardInner {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Body text ────────────────────────────────────────── */
+.cardBody {
+  font-size: 13px;
+  color: rgba(148, 163, 184, 0.85);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 78%;
+}
+
+/* ── Advance hint ─────────────────────────────────────── */
+.advanceHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(100, 116, 139, 0.9);
+  font-weight: 500;
+}
+
+/* ── Dot nav ──────────────────────────────────────────── */
+.dotRow {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  margin-top: 1.1rem;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.dot:focus-visible { outline: 2px solid rgba(96,165,250,0.7); outline-offset: 2px; }
+.dotActive { background: #60a5fa; transform: scale(1.3); }
+
+/* ── Pills (Card 1) ───────────────────────────────────── */
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.pill {
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.pillOutline {
+  border-color: rgba(51, 65, 85, 0.8);
+  color: rgba(148, 163, 184, 0.85);
+  background: rgba(255,255,255,0.03);
+}
+.pillAmber {
+  border-color: rgba(120, 53, 15, 0.6);
+  background: rgba(28, 18, 8, 0.6);
+  color: #fbbf24;
+}
+
+/* ── Bar chart (Card 2) ───────────────────────────────── */
+.barContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.barRow   { display: flex; align-items: center; gap: 10px; }
+.barLabel { font-size: 11.5px; color: rgba(148,163,184,0.85); width: 54px; text-align: right; flex-shrink: 0; }
+
+.barTrack {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  height: 7px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+.barFill  { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+.barPct   { font-size: 11px; color: rgba(100,116,139,0.9); width: 28px; flex-shrink: 0; }
+
+/* ── Timeline (Card 3) ────────────────────────────────── */
+.timeline { display: flex; flex-direction: column; }
+
+.tlItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+.tlDotWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tlDot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tlInner { width: 8px; height: 8px; border-radius: 50%; }
+
+.tlLine {
+  width: 1px;
+  flex: 1;
+  min-height: 8px;
+  background: rgba(255,255,255,0.08);
+  margin: 3px 0;
+}
+
+.tlBody   { padding-bottom: 8px; }
+.tlMonth  { font-size: 10.5px; color: rgba(71,85,105,0.9); margin: 0 0 1px; font-weight: 500; letter-spacing: 0.04em; }
+.tlPhase  { font-size: 13.5px; color: #e2e8f0; font-weight: 600; margin: 0 0 1px; }
+.tlDesc   { font-size: 11.5px; color: rgba(100,116,139,0.85); margin: 0; }
+
+/* ── Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cardShell, .content, .barFill, .dot { transition: none; }
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .cardShell  { height: 420px; padding: 1.5rem 1.25rem 1.25rem; }
+  .content    { padding: 1.5rem 1.25rem 1.25rem; }
+  .cardTitle  { font-size: 20px; max-width: 75%; }
+  .cardBody   { max-width: 100%; }
+}

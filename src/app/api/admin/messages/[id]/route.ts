@@ -15,11 +15,19 @@ export async function PATCH(
 
         const { id } = await params;
         const body = await req.json();
-        const { contacted } = body;
+
+        if (typeof body.contacted !== "boolean") {
+            return NextResponse.json({ error: "Invalid contacted value" }, { status: 400 });
+        }
+
+        const messageId = parseInt(id, 10);
+        if (Number.isNaN(messageId)) {
+            return NextResponse.json({ error: "Invalid message ID" }, { status: 400 });
+        }
 
         const updatedMessage = await prisma.contact.update({
-            where: { id: parseInt(id) },
-            data: { contacted },
+            where: { id: messageId },
+            data: { contacted: body.contacted },
         });
 
         return NextResponse.json(updatedMessage);
@@ -44,8 +52,13 @@ export async function DELETE(
 
         const { id } = await params;
 
+        const messageId = parseInt(id, 10);
+        if (Number.isNaN(messageId)) {
+            return NextResponse.json({ error: "Invalid message ID" }, { status: 400 });
+        }
+
         await prisma.contact.delete({
-            where: { id: parseInt(id) },
+            where: { id: messageId },
         });
 
         return NextResponse.json({ message: 'Message deleted successfully' });

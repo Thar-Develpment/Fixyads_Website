@@ -88,7 +88,7 @@ export default function ServicesPage() {
         <div className={styles.heroOrb2} />
         <div className={styles.heroGrid} />
         <div className={styles.heroInner}>
-          <span className={styles.heroEyebrow}>// Specialized Agency Solutions</span>
+          <span className={styles.heroEyebrow}>{"// Specialized Agency Solutions"}</span>
           <h1 className={styles.heroTitle}>
             Engineered for <span>Measurable Growth</span>
           </h1>
@@ -150,7 +150,7 @@ export default function ServicesPage() {
       <section className={styles.processStrip}>
         <div className={styles.processInner}>
           <div className={styles.processHeader}>
-            <span className={styles.processEyebrow}>// How We Deliver Success</span>
+            <span className={styles.processEyebrow}>{"// How We Deliver Success"}</span>
             <h2 className={styles.processTitle}>Our Battle-Tested Spacing Execution Path</h2>
           </div>
 
@@ -171,7 +171,7 @@ export default function ServicesPage() {
         <div className={styles.ctaBlock}>
           <div className={styles.ctaOrb} />
           <div className={styles.ctaInner}>
-            <span className={styles.ctaEyebrow}>// Ready to Scale Your Brand?</span>
+            <span className={styles.ctaEyebrow}>{"// Ready to Scale Your Brand?"}</span>
             <h2 className={styles.ctaTitle}>Get a Free Growth Consultation Call</h2>
             <p className={styles.ctaText}>
               We build custom digital marketing strategies and high-converting web applications that align precisely with your business goals and drive real, sustainable growth.

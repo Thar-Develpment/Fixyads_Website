@@ -1,0 +1,395 @@
+/* =========================================================================
+   COURSES SECTION — GLASSMORPHISM (White BG, 2-Column Layout)
+   ========================================================================= */
+
+.section {
+  position: relative;
+  padding: 6.5rem 0;
+  background-color: #FFFFFF;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 56px 56px;
+  overflow: hidden;
+}
+
+/* HUD corner brackets (matching Military Grade visual style for cohesion) */
+.section::before,
+.section::after {
+  content: '';
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 1;
+}
+.section::before {
+  top: 2.5rem;
+  left: 2.5rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.15);
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
+}
+.section::after {
+  bottom: 2.5rem;
+  right: 2.5rem;
+  border-right: 2px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Main Container Grid layout */
+.coursesContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left Column: Heading + Image */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  width: 100%;
+}
+
+.coursesHeader {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.body {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Image styling */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(11, 28, 61, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  aspect-ratio: 16 / 10;
+}
+
+.courseImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageWrap:hover .courseImage {
+  transform: scale(1.03);
+}
+
+/* Right Column: Stacked Cards */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.courseGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* ── Horizontal Glass Card (Smaller/Shorter Layout) ────── */
+.courseCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: 18px;
+  padding: 1.5rem 1.85rem;
+  text-decoration: none !important;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 4px 20px rgba(11, 28, 61, 0.02),
+    0 0 32px var(--card-glow),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+/* Ambient glow seeping from the top corner, always-on */
+.courseCard::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, var(--card-glow) 0%, transparent 70%);
+  opacity: 0.9;
+  filter: blur(10px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 0;
+}
+
+.courseCard:hover::before {
+  opacity: 1.4;
+  transform: scale(1.2);
+}
+
+.courseCard:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--card-accent);
+  box-shadow:
+    0 12px 32px rgba(11, 28, 61, 0.06),
+    0 0 0 1.5px var(--card-accent),
+    0 0 45px var(--card-glow),
+    0 1px 0 rgba(255, 255, 255, 0.95) inset;
+}
+
+/* Top accent line */
+.cardAccentBar {
+  position: absolute;
+  top: 0; left: 1.85rem; right: 1.85rem;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  background: var(--card-accent);
+  opacity: 0.35;
+  box-shadow: 0 0 16px var(--card-accent);
+  transition: opacity 0.35s ease, box-shadow 0.35s ease;
+  z-index: 10;
+}
+
+.courseCard:hover .cardAccentBar {
+  opacity: 1;
+  box-shadow: 0 0 24px var(--card-accent), 0 0 48px var(--card-accent);
+}
+
+/* Glass shine streak */
+.cardShine {
+  position: absolute;
+  top: 0; left: -80%;
+  width: 50%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-15deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.courseCard:hover .cardShine {
+  left: 130%;
+}
+
+/* Layout flex parts */
+.cardLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex: 1;
+  z-index: 1;
+}
+
+.cardRight {
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.courseIconWrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: var(--card-glow);
+  color: var(--card-accent);
+  box-shadow: 0 0 0 6px var(--card-glow), 0 4px 18px var(--card-glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.courseCard:hover .courseIconWrap {
+  transform: scale(1.1) rotate(-4deg);
+  box-shadow: 0 0 0 10px var(--card-glow), 0 6px 28px var(--card-accent);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.courseTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.courseDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Horizontal feature list to keep height smaller */
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Responsive breakpoint styling */
+@media (max-width: 1024px) {
+  .coursesContainer {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding: 0 2rem;
+  }
+
+  .coursesHeader {
+    text-align: center;
+    align-items: center;
+  }
+
+  .body {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .imageWrap {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .courseCard {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+
+  .cardLeft {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .cardRight {
+    width: 100%;
+  }
+
+  .cardRight :global(.btn) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .featureList {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+  .coursesContainer {
+    padding: 0 1.25rem;
+    gap: 2.5rem;
+  }
+  .section::before,
+  .section::after {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .courseCard,
+  .courseIconWrap,
+  .cardAccentBar,
+  .eyebrowDot {
+    transition: none;
+    animation: none;
+  }
+}

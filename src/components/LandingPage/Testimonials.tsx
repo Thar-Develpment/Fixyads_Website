@@ -44,7 +44,7 @@ const Testimonials = () => {
                 position: 'relative',
               }}
             >
-              <p className={styles.cardText}>"{item.text}"</p>
+              <p className={styles.cardText}>&quot;{item.text}&quot;</p>
               <div className={styles.cardProfile}>
                 <div className={styles.cardAvatar}>
                   <img src={item.avatar} alt={item.name} className={styles.cardAvatarImg} />
@@ -54,7 +54,7 @@ const Testimonials = () => {
                   <span className={styles.cardRole}>{item.role}</span>
                 </div>
               </div>
-              <span className={styles.quoteGlyph}>"</span>
+              <span className={styles.quoteGlyph}>&quot;</span>
             </div>
           ))}
         </div>
@@ -63,7 +63,7 @@ const Testimonials = () => {
         <div className={styles.contentCol}>
           <span className={styles.eyebrow}>Testimonials</span>
           <h2 className={styles.title}>
-            Client's Feedback
+            Client&apos;s Feedback
           </h2>
           <p className={styles.body}>
             At FixyAds, client satisfaction and direct performance transparency are our top objectives. 
@@ -83,8 +83,8 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <Link href="/testimonials" className={styles.btn}>
-            <span>See More Feedback</span>
+          <Link href="/contact" className={styles.btn}>
+            <span>Get in Touch</span>
             <ArrowRight size={16} className={styles.btnArrow} />
           </Link>
         </div>

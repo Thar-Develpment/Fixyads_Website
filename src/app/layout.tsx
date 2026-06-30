@@ -6,9 +6,7 @@ import FloatingQuote from "@/components/FloatingQuote/FloatingQuote";
 import TawkTo from "@/components/TawkTo/TawkTo";
 import "./globals.css";
 import Script from "next/script";
-import { FAQPage, WithContext } from "schema-dts";
-
-
+import { Providers } from "@/components/Providers";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
@@ -36,11 +34,9 @@ export const metadata: Metadata = {
     "Expert digital marketing services and professional training courses in Digital Marketing and Java.",
 
   verification: {
-    google: "vmOOhhRZqulR4Ly_eNqZb1g1E_DkEzX836Q-NDP64oA", // Search Console
+    google: "vmOOhhRZqulR4Ly_eNqZb1g1E_DkEzX836Q-NDP64oA",
   },
 };
-
-import { Providers } from "@/components/Providers";
 
 export default function RootLayout({
   children,
@@ -51,7 +47,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${dmSans.variable} ${spaceMono.variable}`}>
         <Providers>
-          {/* Google Analytics */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-0GMKDXQV76"
             strategy="afterInteractive"
@@ -69,23 +64,23 @@ export default function RootLayout({
             {JSON.stringify({
               "@context": "https://schema.org/",
               "@type": "Organization",
-              "url": "https://www.fixyads.com",
-              "logo": "https://www.fixyads.com/Logo/Newlogo.png",
-              "name": "Fixyads",
-              "description": "Expert Digital Marketing, Branding, and Social Media Marketing solutions built for measurable growth.",
-              "address": {
+              url: "https://www.fixyads.com",
+              logo: "https://www.fixyads.com/Logo/Newlogo.png",
+              name: "Fixyads",
+              description:
+                "Expert Digital Marketing, Branding, and Social Media Marketing solutions built for measurable growth.",
+              address: {
                 "@type": "PostalAddress",
-                "email": "fixyads@gmail.com",
-                "telephone": "+91 84380 83853"
+                email: "fixyads@gmail.com",
+                telephone: "+91 84380 83853",
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.instagram.com/fixyads/",
                 "https://www.facebook.com/profile.php?id=61568361441860",
-                "https://www.linkedin.com/company/fixyads/"
-              ]
+                "https://www.linkedin.com/company/fixyads/",
+              ],
             })}
           </Script>
-
 
           <Navbar />
           <main

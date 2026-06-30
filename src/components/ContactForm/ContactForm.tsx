@@ -9,7 +9,8 @@ const ContactForm = () => {
         email: '',
         phone: '',
         service: '',
-        message: ''
+        message: '',
+        website: '', // honeypot — must stay empty
     });
 
     // const handleSubmit = (e: React.FormEvent) => {
@@ -60,12 +61,14 @@ const ContactForm = () => {
                     email: '',
                     phone: '',
                     service: '',
-                    message: ''
+                    message: '',
+                    website: '',
                 });
                 setStatus('idle');
             }, 5000);
 
         } catch (err) {
+            console.error(err);
             setStatus('error');
             setStatusMsg('Server error. Please try again later.');
         }
@@ -145,6 +148,17 @@ const ContactForm = () => {
                     value={formData.message}
                     onChange={handleChange}
                 ></textarea>
+            </div>
+
+            <div className={styles.formGroup} aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+                <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={handleChange}
+                />
             </div>
 
             <button

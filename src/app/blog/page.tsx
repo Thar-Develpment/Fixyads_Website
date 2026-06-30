@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { getAllPosts } from "@/lib/wp-rest";
+import Image from "next/image";
+import { getPostsSafe, getFeaturedImageUrl, estimateReadTime } from "@/lib/wp-rest";
+import { sanitizePlainText } from "@/lib/sanitize";
+import type { WordPressPost } from "@/types/wordpress";
 import styles from "./blog.module.css";
 import { ArrowRight, Clock, BookOpen } from "lucide-react";
 
@@ -37,11 +40,10 @@ function limitTitle(text: string, limit = 10) {
   return words.slice(0, limit).join(" ") + (words.length > limit ? "…" : "");
 }
 
-const READ_TIMES = ["5 Min Read", "7 Min Read", "6 Min Read", "8 Min Read", "4 Min Read", "9 Min Read"];
 const CATEGORIES = ["SEO", "Performance", "Content", "Branding", "PPC", "Social Media"];
 
 export default async function BlogPage() {
-  const posts = await getAllPosts();
+  const posts = await getPostsSafe(50);
 
   if (posts.length === 0) {
     return (
@@ -62,7 +64,7 @@ export default async function BlogPage() {
   }
 
   const [featured, ...rest] = posts;
-  const featuredImage = featured._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const featuredImage = getFeaturedImageUrl(featured);
 
   return (
     <>
@@ -72,7 +74,7 @@ export default async function BlogPage() {
         <div className={styles.heroOrb2} />
         <div className={styles.heroGrid} />
         <div className={styles.heroInner}>
-          <span className={styles.heroEyebrow}>// Resources &amp; Insights</span>
+          <span className={styles.heroEyebrow}>{"// Resources & Insights"}</span>
           <h1 className={styles.heroTitle}>
             The Fixyads <span className={styles.heroAccent}>Growth Blog</span>
           </h1>
@@ -109,10 +111,13 @@ export default async function BlogPage() {
           <Link href={`/blog/${featured.slug}`} className={styles.featuredCard}>
             <div className={styles.featuredImgWrap}>
               {featuredImage ? (
-                <img
+                <Image
                   src={featuredImage}
-                  alt={featured.title.rendered.replace(/<[^>]+>/g, "")}
+                  alt={sanitizePlainText(featured.title.rendered)}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 60vw"
                   className={styles.featuredImg}
+                  priority
                 />
               ) : (
                 <div className={styles.featuredPlaceholder}>
@@ -126,12 +131,11 @@ export default async function BlogPage() {
             <div className={styles.featuredBody}>
               <div className={styles.featuredMeta}>
                 <Clock size={13} className={styles.metaIcon} />
-                <span>{READ_TIMES[0]}</span>
+                <span>{estimateReadTime(featured.content?.rendered ?? featured.excerpt.rendered)}</span>
               </div>
-              <h2
-                className={styles.featuredTitle}
-                dangerouslySetInnerHTML={{ __html: featured.title.rendered }}
-              />
+              <h2 className={styles.featuredTitle}>
+                {sanitizePlainText(featured.title.rendered)}
+              </h2>
               <p className={styles.featuredExcerpt}>
                 {limitWords(featured.excerpt.rendered, 30)}
               </p>
@@ -151,9 +155,9 @@ export default async function BlogPage() {
               <span className={styles.gridCount}>{rest.length} more posts</span>
             </div>
             <div className={styles.grid}>
-              {rest.map((post: any, i: number) => {
-                const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-                const readTime = READ_TIMES[(i + 1) % READ_TIMES.length];
+              {rest.map((post: WordPressPost, i: number) => {
+                const image = getFeaturedImageUrl(post);
+                const readTime = estimateReadTime(post.content?.rendered ?? post.excerpt.rendered);
                 const category = CATEGORIES[(i + 1) % CATEGORIES.length];
 
                 return (
@@ -161,9 +165,11 @@ export default async function BlogPage() {
                     <Link href={`/blog/${post.slug}`} className={styles.cardImgLink}>
                       <div className={styles.cardImgWrap}>
                         {image ? (
-                          <img
+                          <Image
                             src={image}
-                            alt={post.title.rendered.replace(/<[^>]+>/g, "")}
+                            alt={sanitizePlainText(post.title.rendered)}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
                             className={styles.cardImg}
                           />
                         ) : (
@@ -184,10 +190,9 @@ export default async function BlogPage() {
                       </div>
 
                       <h3 className={styles.cardTitle}>
-                        <Link
-                          href={`/blog/${post.slug}`}
-                          dangerouslySetInnerHTML={{ __html: limitTitle(post.title.rendered, 9) }}
-                        />
+                        <Link href={`/blog/${post.slug}`}>
+                          {limitTitle(sanitizePlainText(post.title.rendered), 9)}
+                        </Link>
                       </h3>
 
                       <p className={styles.cardExcerpt}>
