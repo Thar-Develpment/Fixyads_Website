@@ -37,7 +37,7 @@ const Hero = () => {
           {/* ── LEFT COLUMN: CONTENT ── */}
           <div className={styles.leftCol}>
 
-            <div className={styles.ratingBlock}>
+            {/* <div className={styles.ratingBlock}>
               <div className={styles.stars}>
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={14} className={styles.starIcon} />
@@ -46,7 +46,7 @@ const Hero = () => {
               <span className={styles.ratingText}>
                 5.0 Rating <span className={styles.ratingMuted}>· 500+ Happy Clients</span>
               </span>
-            </div>
+            </div> */}
 
             <h1 className={styles.title}>
               AI-Based <span className={styles.titleAccent}>Digital </span>
@@ -74,7 +74,7 @@ const Hero = () => {
               </Link>
             </div>
 
-            <div className={styles.statsRow}>
+            {/* <div className={styles.statsRow}>
               <div className={styles.statCol}>
                 <span className={styles.statNumber}>25M+</span>
                 <span className={styles.statLabel}>Impressions Generated</span>
@@ -89,7 +89,7 @@ const Hero = () => {
                 <span className={styles.statNumber}>98%</span>
                 <span className={styles.statLabel}>Client Retention Rate</span>
               </div>
-            </div>
+            </div> */}
 
           </div>
 

@@ -5,7 +5,7 @@ import Services from '@/components/LandingPage/Services';
 import IndustriesSection from '@/components/LandingPage/IndustriesSection';
 import HowWeWorkSection from '@/components/LandingPage/HowWeWorkSection';
 import MissionGoal from '@/components/LandingPage/Courses';
-import Testimonials from '@/components/LandingPage/Testimonials';
+import StrategySection from '@/components/LandingPage/StrategySection';
 import BlogPosts from '@/components/LandingPage/BlogPosts';
 import Newsletter from '@/components/LandingPage/Newsletter';
 
@@ -37,8 +37,8 @@ export default function Home() {
       {/* 7. Our Mission & Goal */}
       <MissionGoal />
 
-      {/* 8. Client Testimonials */}
-      <Testimonials />
+      {/* 8. Digital Marketing Strategy */}
+      <StrategySection />
 
       {/* 9. Blog Posts — real WP posts */}
       <BlogPosts />

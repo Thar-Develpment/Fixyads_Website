@@ -1,10 +1,13 @@
+import { decodeHtmlEntities } from "./sanitize";
+
 /** Strip HTML tags and collapse whitespace for meta tags / previews. */
 export function stripHtml(html: string): string {
   if (!html) return "";
-  return html
+  const stripped = html
     .replace(/<[^>]*>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+  return decodeHtmlEntities(stripped);
 }
 
 /** Short plain-text snippet suitable for meta description. */

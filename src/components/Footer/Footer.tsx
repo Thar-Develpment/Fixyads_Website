@@ -58,9 +58,9 @@ const Footer = () => {
 
             <div className={styles.copyright}>
                 <div>&copy; {new Date().getFullYear()} Fixyads. All rights reserved.</div>
-                <div style={{ marginTop: '10px', display: 'flex', gap: '20px', justifyContent: 'center', fontSize: '0.85rem' }}>
-                    <Link href="/privacy-policy">Privacy Policy</Link>
-                    <Link href="/terms-of-service">Terms of Service</Link>
+                <div style={{ marginTop: '10px', display: 'flex', gap: '20px', justifyContent: 'center', fontSize: '0.85rem', color: '#666' }}>
+                    <Link href="/privacy-policy" style={{ color: '#666' }}>Privacy Policy</Link>
+                    <Link href="/terms-of-service" style={{ color: '#666' }}>Terms of Service</Link>
                 </div>
             </div>
         </footer>

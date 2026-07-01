@@ -24,9 +24,9 @@ const courses = [
       'Learn SEO, paid ads, social media strategy, email campaigns, and analytics to drive growth and maximize ROI for any business.',
     features: ['SEO & Content Strategy', 'Google & Meta Ads', 'Email Marketing', 'Analytics & Reporting'],
     href: '/courses/digital-marketing',
-    accent: '#0B1C3D',
-    bg: 'rgba(11,28,61,0.06)',
-    glow: 'rgba(11,28,61,0.18)',
+    accent: '#1e40af',
+    bg: 'rgba(30, 64, 175, 0.06)',
+    glow: 'rgba(30, 64, 175, 0.18)',
   },
 ];
 

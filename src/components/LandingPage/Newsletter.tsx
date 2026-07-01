@@ -15,7 +15,7 @@ const CtaSection = () => {
           <div className={styles.gridOverlay} />
 
           {/* Trust Badge Row */}
-          <div className={styles.trustRow}>
+          {/* <div className={styles.trustRow}>
             <div className={styles.trustBadge}>
               <div className={styles.stars}>
                 {[...Array(5)].map((_, i) => (
@@ -24,7 +24,7 @@ const CtaSection = () => {
               </div>
               <span className={styles.trustText}>Trusted by 450+ businesses globally</span>
             </div>
-          </div>
+          </div> */}
 
           {/* Headline */}
           <h2 className={styles.title}>
