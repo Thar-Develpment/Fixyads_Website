@@ -196,7 +196,7 @@ export default function AboutPage() {
             <div className={styles.teamCard}>
               <div className={styles.teamImgWrap}>
                 <Image
-                  src="/Team/kalil.png"
+                  src="/Team/Kalil.png"
                   alt="Kalil"
                   width={180}
                   height={180}
