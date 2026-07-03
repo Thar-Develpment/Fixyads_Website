@@ -1,20 +1,16 @@
 /* =========================================================================
-   TRUSTED BY CLIENTS - LOGO BAR
+   TRUSTED BY CLIENTS - SCROLLING LOGO BAR
    ========================================================================= */
 
 .partners {
   width: 100%;
-  margin: -25px 0; /* Overlap by 25px to show the dark background of top/bottom sections behind the rounded corners! */
+  margin: -25px 0;
   padding: 4rem 2.5rem;
-  background: #FFFFFF; /* Pure white card background */
+  background: #FFFFFF;
   position: relative;
-  z-index: 20; /* Sits on top of the dark sections */
+  z-index: 20;
   overflow: hidden;
-  
-  /* Curved capsule corners exactly 25px as requested! */
   border-radius: 25px;
-  
-  /* Clean, subtle outline border exactly like in your image */
   border: 1px solid #E5E7EB;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
@@ -33,22 +29,58 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent); /* Premium brand accent orange for high-end contrast */
+  color: var(--accent);
   margin-bottom: 0;
   text-align: center;
 }
 
-.logoRow {
+/* ---- Marquee wrapper ---- */
+.marquee {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.75rem;
-  /* Balanced gap between logo cards */
+  overflow: hidden;
+  /* Soft fade-out on left & right edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
+.track {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+/* Pause the scroll on hover for readability */
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Slide exactly half the track (one full set of logos) */
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Individual logo cards (unchanged) ---- */
 .logoItem {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +89,6 @@
   background: #FFFFFF;
   border: 1px solid #EAEAEA;
   border-radius: 16px;
-  /* Premium 16px border-radius */
   box-shadow: 0 4px 12px rgba(11, 28, 61, 0.02);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 1rem 1.75rem;
@@ -65,10 +96,8 @@
 
 .logoItem:hover {
   transform: translateY(-4px);
-  /* Removed border color changes to keep color static on hover */
   border-color: #EAEAEA;
-  box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
 
 .logoImg {
@@ -76,13 +105,11 @@
   height: 100%;
   max-width: 140px;
   object-fit: contain;
-  /* Removed grayscale filter so logos show beautiful native colors at all times with no hover shift */
   opacity: 0.85;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logoItem:hover .logoImg {
-  /* Kept opacity static on hover to prevent color shift */
   opacity: 0.85;
 }
 
@@ -91,20 +118,20 @@
    ========================================================================= */
 @media (max-width: 768px) {
   .partners {
-    margin: -16px 0; /* Proportional overlap for mobile corners */
+    margin: -16px 0;
     border-radius: 16px;
     padding: 2.5rem 1.5rem;
   }
 
-  .logoRow {
+  .track {
     gap: 1rem;
+    animation-duration: 18s;
   }
 
   .logoItem {
     width: 150px;
     height: 76px;
     border-radius: 12px;
-    /* Adaptive border-radius for mobile screens */
     padding: 0.75rem 1rem;
   }
 
