@@ -12,6 +12,9 @@ import {
   Sparkles,
   Compass,
   Layers,
+  Globe,
+  TrendingUp,
+  Zap,
 } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -90,15 +93,6 @@ export default function AboutPage() {
               <p className={styles.textBody}>
                 When our clients grow, they create more jobs, serve more people, and make a positive impact in their communities. Their success is our success.
               </p>
-              <div className={styles.equationBar}>
-                <span>Greater Reach</span>
-                <span className={styles.equationPlus}>+</span>
-                <span>More Customers</span>
-                <span className={styles.equationPlus}>+</span>
-                <span>Higher Revenue</span>
-                <span className={styles.equationEquals}>=</span>
-                <span className={styles.equationResult}>Sustainable Business Growth</span>
-              </div>
             </div>
             <div className={styles.purposeRight}>
               <Image
@@ -108,6 +102,39 @@ export default function AboutPage() {
                 height={520}
                 className={styles.purposeImg}
               />
+            </div>
+          </div>
+
+          {/* Equation showcase */}
+          <div className={styles.equationShowcase}>
+            <div className={styles.eqRow}>
+              <div className={styles.eqCard}>
+                <div className={styles.eqCardIcon}>
+                  <Globe size={20} />
+                </div>
+                <span className={styles.eqCardLabel}>Greater Reach</span>
+              </div>
+              <span className={styles.eqOp}>+</span>
+              <div className={styles.eqCard}>
+                <div className={styles.eqCardIcon}>
+                  <Users size={20} />
+                </div>
+                <span className={styles.eqCardLabel}>More Customers</span>
+              </div>
+              <span className={styles.eqOp}>+</span>
+              <div className={styles.eqCard}>
+                <div className={styles.eqCardIcon}>
+                  <TrendingUp size={20} />
+                </div>
+                <span className={styles.eqCardLabel}>Higher Revenue</span>
+              </div>
+            </div>
+            <div className={styles.eqEquals}>
+              <span>=</span>
+            </div>
+            <div className={styles.eqResultCard}>
+              <Zap size={20} />
+              <span>Sustainable Business Growth</span>
             </div>
           </div>
         </div>
@@ -124,10 +151,9 @@ export default function AboutPage() {
               </div>
               <h3 className={styles.mvTitle}>Our Mission</h3>
               <p className={styles.mvText}>
-                Our mission is to help businesses become the first choice whenever potential customers search for products or services online.
+                Our mission is to help businesses become the first choice whenever potential customers search for products or services online.                 Whether someone searches on Google, ChatGPT, Gemini, Perplexity, Microsoft Copilot, or voice search, we ensure your business appears where buying decisions begin.
               </p>
               <p className={styles.mvTextSub}>
-                Whether someone searches on Google, ChatGPT, Gemini, Perplexity, Microsoft Copilot, or voice search, we ensure your business appears where buying decisions begin.
               </p>
               <div className={styles.mvAccentLine}></div>
             </div>
