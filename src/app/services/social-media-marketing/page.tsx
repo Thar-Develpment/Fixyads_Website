@@ -291,7 +291,7 @@ export default function SocialMediaMarketingPage() {
               </p>
               <div className={styles.whyMainStats}>
                 <div className={styles.whyMainStatItem}>
-                  <span className={styles.whyMainStatNum}>100%</span>
+                  {/* <span className={styles.whyMainStatNum}>100%</span> */}
                   <span className={styles.whyMainStatLabel}>Custom Strategy</span>
                 </div>
                 <div className={styles.whyMainStatItem}>
