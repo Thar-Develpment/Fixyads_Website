@@ -295,7 +295,7 @@ export default function SocialMediaMarketingPage() {
                   <span className={styles.whyMainStatLabel}>Custom Strategy</span>
                 </div>
                 <div className={styles.whyMainStatItem}>
-                  <span className={styles.whyMainStatNum}>24/7</span>
+                  {/* <span className={styles.whyMainStatNum}>24/7</span> */}
                   <span className={styles.whyMainStatLabel}>Dedicated Support</span>
                 </div>
               </div>
