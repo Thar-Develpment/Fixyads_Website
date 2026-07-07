@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, PhoneCall, Star } from 'lucide-react';
+import { ArrowRight, PhoneCall } from 'lucide-react';
 import styles from './Newsletter.module.css';
 
 const CtaSection = () => {

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import styles from './StrategySection.module.css';
 
@@ -31,10 +32,13 @@ const StrategySection = () => {
         {/* Right: Image */}
         <div className={styles.imageCol}>
           <div className={styles.imageCard}>
-            <img
+            <Image
               src="/strategy.png"
               alt="Don't be a game player, be the game changer"
               className={styles.image}
+              width={600}
+              height={500}
+              priority
             />
           </div>
         </div>

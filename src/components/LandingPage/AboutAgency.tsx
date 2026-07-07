@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ThumbsUp, Heart } from 'lucide-react';
 import styles from './AboutAgency.module.css';
 
@@ -16,10 +17,13 @@ const AboutAgency = () => {
           <div className={styles.bgRingInner}></div>
 
           <div className={styles.modelWrapper}>
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop&q=80"
               alt="FixyAds Agency Director"
               className={styles.modelImage}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
 
             {/* Floater 1: Blue Thumbs Up */}

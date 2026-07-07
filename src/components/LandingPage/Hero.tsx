@@ -3,15 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Star,
   ArrowUpRight,
-  Play,
   Sparkle,
   ChevronDown,
-  TrendingUp,
-  Users,
-  Target,
-  Rocket,
 } from 'lucide-react';
 import CampaignPulse from './Campaignpulse';
 import styles from './Hero.module.css';

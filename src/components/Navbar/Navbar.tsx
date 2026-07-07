@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
@@ -91,7 +92,7 @@ const Navbar = () => {
           
           {/* Logo container */}
           <Link href="/" className={styles.logoLink} onClick={closeAllMenus}>
-            <img src="/Logo/Newlogo.png" alt="Fixyads Logo" className={styles.logoImage} />
+            <Image src="/Logo/Newlogo.png" alt="Fixyads Logo" className={styles.logoImage} width={150} height={44} style={{ objectFit: 'contain' }} priority />
           </Link>
 
           {/* Navigation Links */}

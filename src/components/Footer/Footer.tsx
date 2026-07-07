@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className={styles.footerContainer}>
                 <div className={styles.column}>
-                    <img src="/Logo/Newlogo.png" alt="" />
+                    <Image src="/Logo/Newlogo.png" alt="Fixyads Logo" width={180} height={53} style={{ objectFit: 'contain' }} />
                     <p>Transforming businesses with data-driven digital marketing strategies and empowering the next generation with expert training.</p>
                 </div>
 
@@ -43,13 +44,13 @@ const Footer = () => {
                     <p>Phone: +91 84380 83853</p>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <a href="https://www.instagram.com/fixyads/">
-                            <img src="/SocialMedia/instagram.png" alt="" style={{ height: '50px', width: '50px' }} />
+                            <Image src="/SocialMedia/instagram.png" alt="Instagram" width={50} height={50} />
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=61568361441860">
-                            <img src="/SocialMedia/facebook.png" alt="" style={{ height: '50px', width: '50px' }} />
+                            <Image src="/SocialMedia/facebook.png" alt="Facebook" width={50} height={50} />
                         </a>
                         <a href="https://www.linkedin.com/company/fixyads/">
-                            <img src="/SocialMedia/linkedin.png" alt="" style={{ height: '50px', width: '50px' }} />
+                            <Image src="/SocialMedia/linkedin.png" alt="LinkedIn" width={50} height={50} />
                         </a>
                     </div>
                 </div>

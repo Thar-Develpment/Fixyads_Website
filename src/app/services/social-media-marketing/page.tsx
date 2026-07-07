@@ -132,7 +132,7 @@ export default function SocialMediaMarketingPage() {
               </p>
 
               {/* Live campaign stats mock layout */}
-              <div className={styles.heroMiniStats}>
+              {/* <div className={styles.heroMiniStats}>
                 <div className={styles.heroMiniStat}>
                   <span className={styles.heroMiniNum}>+240%</span>
                   <span className={styles.heroMiniLabel}>Average CTR</span>
@@ -147,7 +147,7 @@ export default function SocialMediaMarketingPage() {
                   <span className={styles.heroMiniNum}>AI+Human</span>
                   <span className={styles.heroMiniLabel}>Strategy Engine</span>
                 </div>
-              </div>
+              </div> */}
 
               <Link href="/contact" className={styles.heroCta}>
                 <span>Get Free Strategy Call</span>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Code2, Megaphone, CheckCircle2 } from 'lucide-react';
 import styles from './Courses.module.css';
 
@@ -49,10 +50,12 @@ const MissionGoal = () => {
           </div>
 
           <div className={styles.imageWrap}>
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80"
               alt="Professional training environment"
               className={styles.courseImage}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         </div>
