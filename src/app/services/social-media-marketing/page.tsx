@@ -123,6 +123,10 @@ export default function SocialMediaMarketingPage() {
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
+              <div className={styles.heroPulseBadge}>
+                <span className={styles.pulseDot}></span>
+                <span>Active Campaign Optimization Mode</span>
+              </div>
               <span className={styles.heroEyebrow}>Social Media Marketing Services</span>
               <h1 className={styles.heroTitle}>
                 Build a Stronger Brand. <span className={styles.heroAccent}>Reach More Customers.</span>
@@ -130,20 +134,46 @@ export default function SocialMediaMarketingPage() {
               <p className={styles.heroSubtitle}>
                 Your customers are already on social media. If your business isn&rsquo;t active, consistent, and engaging, you&rsquo;re missing valuable opportunities.
               </p>
+
+              {/* Live campaign stats mock layout */}
+              <div className={styles.heroMiniStats}>
+                <div className={styles.heroMiniStat}>
+                  <span className={styles.heroMiniNum}>+240%</span>
+                  <span className={styles.heroMiniLabel}>Average CTR</span>
+                </div>
+                <div className={styles.heroMiniDivider}></div>
+                <div className={styles.heroMiniStat}>
+                  <span className={styles.heroMiniNum}>3x</span>
+                  <span className={styles.heroMiniLabel}>Lead Volume</span>
+                </div>
+                <div className={styles.heroMiniDivider}></div>
+                <div className={styles.heroMiniStat}>
+                  <span className={styles.heroMiniNum}>AI+Human</span>
+                  <span className={styles.heroMiniLabel}>Strategy Engine</span>
+                </div>
+              </div>
+
               <Link href="/contact" className={styles.heroCta}>
                 <span>Get Free Strategy Call</span>
                 <ArrowUpRight size={18} className={styles.heroCtaArrow} />
               </Link>
             </div>
             <div className={styles.heroVisual}>
-              <Image
-                src="/services/smm-hero.png"
-                alt="Social media marketing dashboard with engagement analytics"
-                width={580}
-                height={480}
-                className={styles.heroImg}
-                priority
-              />
+              <div className={styles.browserMockup}>
+                <div className={styles.browserHeader}>
+                  <span className={styles.browserDot}></span>
+                  <span className={styles.browserDot}></span>
+                  <span className={styles.browserDot}></span>
+                </div>
+                <Image
+                  src="/services/smm-hero.png"
+                  alt="Social media marketing dashboard with engagement analytics"
+                  width={580}
+                  height={480}
+                  className={styles.heroImg}
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
