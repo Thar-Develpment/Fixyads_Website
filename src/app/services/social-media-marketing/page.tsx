@@ -123,10 +123,6 @@ export default function SocialMediaMarketingPage() {
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <div className={styles.heroPulseBadge}>
-                <span className={styles.pulseDot}></span>
-                <span>Active Campaign Optimization Mode</span>
-              </div>
               <span className={styles.heroEyebrow}>Social Media Marketing Services</span>
               <h1 className={styles.heroTitle}>
                 Build a Stronger Brand. <span className={styles.heroAccent}>Reach More Customers.</span>
