@@ -126,10 +126,10 @@ const Navbar = () => {
 
               <div className={styles.dropdownMenu}>
                 <Link href="/services/search-engine-optimization" onClick={closeAllMenus}>
-                  SEO
+                  Search Engine Optimization
                 </Link>
                 <Link href="/services/social-media-marketing" onClick={closeAllMenus}>
-                  SMM
+                  Social Media Marketing
                 </Link>
                 <Link href="/services/content-branding" onClick={closeAllMenus}>
                   Content & Branding
