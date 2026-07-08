@@ -89,11 +89,6 @@ export default function SocialMediaMarketingPage() {
       desc: 'Captivate your audience with striking visuals, engaging copy, and scroll-stopping reels created by professional designers.',
     },
     {
-      icon: Video,
-      title: 'AI-powered video production',
-      desc: 'Produce high-converting, professional video assets quickly and affordably using advanced AI editing and rendering technologies.',
-    },
-    {
       icon: Zap,
       title: 'ROI-focused advertising',
       desc: 'Optimize your budget with precision-targeted Meta and Google ads designed to drive qualified leads, traffic, and sales.',
@@ -289,16 +284,16 @@ export default function SocialMediaMarketingPage() {
               <p className={styles.whyMainDesc}>
                 We combine industry-leading AI tools, creative human expertise, and ROI-focused marketing to scale brands sustainably on social media.
               </p>
-              <div className={styles.whyMainStats}>
-                <div className={styles.whyMainStatItem}>
+              {/* <div className={styles.whyMainStats}>
+                <div className={styles.whyMainStatItem}> */}
                   {/* <span className={styles.whyMainStatNum}>100%</span> */}
-                  <span className={styles.whyMainStatLabel}>Custom Strategy</span>
+                  {/* <span className={styles.whyMainStatLabel}>Custom Strategy</span>
                 </div>
-                <div className={styles.whyMainStatItem}>
+                <div className={styles.whyMainStatItem}> */}
                   {/* <span className={styles.whyMainStatNum}>24/7</span> */}
-                  <span className={styles.whyMainStatLabel}>Dedicated Support</span>
+                  {/* <span className={styles.whyMainStatLabel}>Dedicated Support</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right Column: Sleek Timeline Connection List */}
