@@ -27,9 +27,9 @@
 .hero {
   position: relative;
   background: linear-gradient(135deg, #0B1C3D 0%, #091629 100%);
-  padding: calc(var(--navbar-offset) + 5rem) 1.5rem 6rem;
+  padding: calc(var(--navbar-offset) + 5rem) 1.5rem 6.5rem;
   text-align: center;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 1px solid rgba(244, 82, 30, 0.15);
   overflow: hidden;
 }
 
@@ -211,7 +211,24 @@
   50% { transform: translateY(-12px); }
 }
 
-.heroEyebrow,
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ff7a45;
+  background: rgba(244, 82, 30, 0.08);
+  border: 1px solid rgba(244, 82, 30, 0.18);
+  padding: 0.5rem 1.15rem;
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 .sectionEyebrow {
   display: inline-flex;
   align-items: center;
@@ -234,7 +251,10 @@
 }
 
 .heroAccent {
-  color: var(--accent);
+  background: linear-gradient(135deg, #ff7a45 0%, #f4521e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .heroSubtitle {
@@ -1032,15 +1052,30 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .hero {
-    padding: calc(var(--navbar-offset) + 2.5rem) 1rem 3rem;
+    padding: calc(var(--navbar-offset) + 2rem) 1.25rem 4rem;
+  }
+
+  .heroEyebrow {
+    font-size: 0.68rem;
+    padding: 0.45rem 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .heroTitle {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-size: clamp(1.85rem, 6.5vw, 2.3rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
   }
 
   .heroSubtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .heroPulseBadge {
@@ -1070,10 +1105,17 @@
   }
 
   .browserMockup {
-    max-width: 320px;
-    padding: 1.85rem 0.35rem 0.35rem 0.35rem;
+    max-width: 340px;
+    width: 100%;
+    padding: 1.6rem 0.35rem 0.35rem 0.35rem;
     border-radius: 16px;
-    margin: 2rem auto 0;
+    margin: 2.5rem auto 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(244, 82, 30, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .browserHeader {
@@ -1088,8 +1130,9 @@
   }
 
   .heroCta {
-    padding: 0.85rem 1.75rem;
-    font-size: 0.9rem;
+    padding: 0.9rem 2.25rem;
+    font-size: 0.92rem;
+    border-radius: 99px;
   }
 
   /* Intro mobile */
@@ -1274,17 +1317,19 @@
 /* ── Small phones ── */
 @media (max-width: 480px) {
   .hero {
-    padding: calc(var(--navbar-offset) + 1.5rem) 0.75rem 2.5rem;
+    padding: calc(var(--navbar-offset) + 1.25rem) 0.75rem 3.5rem;
   }
 
   .heroTitle {
-    font-size: 1.65rem;
+    font-size: 1.75rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
   }
 
   .heroSubtitle {
     font-size: 0.88rem;
-    line-height: 1.65;
-    margin-bottom: 1.75rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
   }
 
   .heroPulseBadge {
@@ -1313,10 +1358,15 @@
   }
 
   .browserMockup {
-    max-width: 250px;
-    padding: 1.5rem 0.25rem 0.25rem 0.25rem;
-    border-radius: 12px;
-    margin: 1.5rem auto 0;
+    max-width: 290px;
+    width: 100%;
+    padding: 1.5rem 0.3rem 0.3rem 0.3rem;
+    border-radius: 14px;
+    margin: 2rem auto 0;
+    box-shadow: 
+      0 15px 30px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(244, 82, 30, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .browserHeader {
@@ -1483,8 +1533,8 @@
   }
 
   .heroCta {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
-    border-radius: 8px;
+    padding: 0.8rem 1.75rem;
+    font-size: 0.88rem;
+    border-radius: 99px;
   }
 }
