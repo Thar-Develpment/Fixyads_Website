@@ -75,10 +75,6 @@ export default function ContactPage() {
                   <div className={styles.infoContent}>
                     <h3>Email Us</h3>
                     <p className={styles.infoLinkWrap}>
-                      <a href="mailto:fixyads@gmail.com" className={styles.infoLink}>
-                        fixyads@gmail.com
-                      </a>
-                      <span className={styles.linkSeparator}>·</span>
                       <a href="mailto:sales@fixyads.com" className={styles.infoLink}>
                         sales@fixyads.com
                       </a>

@@ -41,7 +41,7 @@ const Footer = () => {
                     <h3>Contact</h3>
                     {/* <p>54/A, Chinnakadai Street, Muthaiahpillay Lane, Madurai, India, Tamil Nadu</p> */}
                     <p><span>Email:</span><br></br>
-                        <a href="mailto:[EMAIL_ADDRESS]" style={{ color: '#ffffffff' }}>fixyads@gmail.com</a><br />
+                        {/* <a href="mailto:[EMAIL_ADDRESS]" style={{ color: '#ffffffff' }}>fixyads@gmail.com</a><br /> */}
                         <a href="mailto:[EMAIL_ADDRESS]" style={{ color: '#ffffffff' }}>sales@fixyads.com</a>
                     </p>
                     <p><span>Phone:</span><br></br>
