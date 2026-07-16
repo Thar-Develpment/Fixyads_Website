@@ -40,8 +40,12 @@ const Footer = () => {
                 <div className={styles.column}>
                     <h3>Contact</h3>
                     {/* <p>54/A, Chinnakadai Street, Muthaiahpillay Lane, Madurai, India, Tamil Nadu</p> */}
-                    <p>Email: fixyads@gmail.com</p>
-                    <p>Phone: +91 84380 83853</p>
+                    <p><span>Email:</span><br></br>
+                        <a href="mailto:[EMAIL_ADDRESS]" style={{ color: '#ffffffff' }}>fixyads@gmail.com</a><br />
+                        <a href="mailto:[EMAIL_ADDRESS]" style={{ color: '#ffffffff' }}>sales@fixyads.com</a>
+                    </p>
+                    <p><span>Phone:</span><br></br>
+                        <a href="mailto:[EMAIL_ADDRESS]" style={{ color: '#ffffffff' }}>+91 84380 83853</a></p>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <a href="https://www.instagram.com/fixyads/">
                             <Image src="/SocialMedia/instagram.png" alt="Instagram" width={50} height={50} />
