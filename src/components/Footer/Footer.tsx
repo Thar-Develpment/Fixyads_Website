@@ -21,7 +21,7 @@ const Footer = () => {
 
                         <li><Link href="/services/search-engine-optimization">SEO</Link></li>
                         <li><Link href="/services/social-media-marketing">SMM</Link></li>
-                        <li><Link href="/services/content-branding">Content & Branding</Link></li>
+                        <li><Link href="/services/content-marketing-services">Content Marketing</Link></li>
                         <li><Link href="/services/web-development">Web Development</Link></li>
                         <li><Link href="/services/influencer-marketing">Influencer Marketing</Link></li>
                     </ul>

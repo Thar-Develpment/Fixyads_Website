@@ -45,7 +45,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/content-branding",
-        destination: "/services/content-branding",
+        destination: "/services/content-marketing-services",
+        permanent: true,
+      },
+      {
+        source: "/services/content-branding",
+        destination: "/services/content-marketing-services",
+        permanent: true,
+      },
+      {
+        source: "/services/email-marketing",
+        destination: "/contact",
         permanent: true,
       },
       {

@@ -5,14 +5,14 @@ import styles from "./Services.module.css";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Digital Marketing & Web Services | Fixyads",
+  title: "Digital Marketing Services for Every Stage of Growth | FixyAds",
   description:
-    "Explore Fixyads services: web development, SEO, social media marketing, content and branding, and influencer campaigns—built for measurable growth.",
+    "From strategy to execution, FixyAds offers digital marketing services that help businesses attract customers, build trust, and grow online.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Digital Marketing & Web Services | Fixyads",
+    title: "Digital Marketing Services for Every Stage of Growth | FixyAds",
     description:
-      "End-to-end digital services from technical SEO and performance web builds to social, content, and creator partnerships.",
+      "From strategy to execution, FixyAds offers digital marketing services that help businesses attract customers, build trust, and grow online.",
     url: "/services",
     type: "website",
   },
@@ -41,8 +41,8 @@ const services = [
     deliverables: ["Paid Ad Campaigns", "Content Strategy", "Brand Engagement", "ROI Reporting"]
   },
   {
-    title: "Content Branding",
-    link: "/services/content-branding",
+    title: "Content Marketing",
+    link: "/services/content-marketing-services",
     icon: <FileText size={24} />,
     desc: "We create valuable, engaging content that attracts and retains your audience, improves SEO performance, builds brand authority, and drives conversions through blogs, articles, and strategic content planning.",
     deliverables: ["Content Copywriting", "High-Value Blogs", "Brand Positioning", "Market Placement"]

@@ -3,17 +3,17 @@ import PageTemplate from "@/components/layout/PageTemplate";
 import { siteContent, generateSiteMetadata } from "@/data/site-content";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = generateSiteMetadata("content-branding");
+export const metadata: Metadata = generateSiteMetadata("content-marketing-services");
 
-export default function ContentBrandingPage() {
-  const data = siteContent["content-branding"];
+export default function ContentMarketingServicesPage() {
+  const data = siteContent["content-marketing-services"];
 
   return (
     <PageTemplate data={data}>
       <section className={ds.section}>
         <div className={ds.container}>
           <h2 className={ds.sectionTitle}>
-            Our Content & Branding Services
+            Our Content Marketing Services
           </h2>
 
           <div className={ds.grid}>

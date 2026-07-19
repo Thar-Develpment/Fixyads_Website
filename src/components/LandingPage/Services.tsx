@@ -23,12 +23,12 @@ const serviceData = [
     link: '/services/social-media-marketing',
   },
   {
-    title: 'Content & Branding',
+    title: 'Content Marketing Services',
     description: 'Create content that answers real questions, builds trust, and turns visitors into brand advocates.',
     IconEl: Palette,
     accent: '#f59e0b',
     glow: 'rgba(245,158,11,0.18)',
-    link: '/services/content-branding',
+    link: '/services/content-marketing-services',
   },
   {
     title: 'Influencer Marketing',
@@ -44,7 +44,7 @@ const serviceData = [
     IconEl: Mail,
     accent: '#fb923c',
     glow: 'rgba(251,146,60,0.18)',
-    link: '/services/email-marketing',
+    link: '/contact',
   },
   {
     title: 'Website Development',

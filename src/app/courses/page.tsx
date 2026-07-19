@@ -4,14 +4,14 @@ import { ArrowRight } from "lucide-react";
 import styles from "./CoursesLanding.module.css";
 
 export const metadata: Metadata = {
-  title: "Professional Training Courses | Digital Marketing & Web Development",
+  title: "Career-Focused IT Courses | FixyAds",
   description:
-    "Hands-on courses in digital marketing, full-stack web development, and placement support. Live projects, mentorship, and career-focused training at Fixyads.",
+    "Master Digital Marketing, Web Development, Front-End Development, and UI/UX Design through hands-on training guided by industry experts.",
   alternates: { canonical: "/courses" },
   openGraph: {
-    title: "Professional Training Courses | Fixyads",
+    title: "Career-Focused IT Courses | FixyAds",
     description:
-      "Practical digital marketing and web development programs with real projects and placement guidance.",
+      "Master Digital Marketing, Web Development, Front-End Development, and UI/UX Design through hands-on training guided by industry experts.",
     url: "/courses",
     type: "website",
   },

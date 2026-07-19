@@ -132,8 +132,8 @@ const Navbar = () => {
                 <Link href="/services/social-media-marketing" onClick={closeAllMenus}>
                   Social Media Marketing
                 </Link>
-                <Link href="/services/content-branding" onClick={closeAllMenus}>
-                  Content & Branding
+                <Link href="/services/content-marketing-services" onClick={closeAllMenus}>
+                  Content Marketing
                 </Link>
                 <Link href="/services/web-development" onClick={closeAllMenus}>
                   Web Development

@@ -20,8 +20,8 @@ import styles from './page.module.css';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/about' },
-  title: 'About Us | Digital Marketing Agency & Training Institute',
-  description: 'Learn about our journey, mission, and the team behind our success.',
+  title: 'About FixyAds | Your Trusted Digital Growth Partner',
+  description: 'Meet the team behind FixyAds and discover how we help businesses grow with innovative strategies, measurable results, and long-term digital success.',
 };
 
 export default function AboutPage() {

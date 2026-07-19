@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FloatingQuote from "@/components/FloatingQuote/FloatingQuote";
 import TawkTo from "@/components/TawkTo/TawkTo";
+import CubeWidget from "@/components/Cubewidget/Cubewidget";
 import "./globals.css";
 import Script from "next/script";
 import { Providers } from "@/components/Providers";
@@ -115,6 +116,7 @@ export default function RootLayout({
           </main>
           <Footer />
 
+          <CubeWidget />
           <TawkTo />
         </Providers>
       </body>

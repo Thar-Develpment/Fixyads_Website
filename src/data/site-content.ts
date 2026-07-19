@@ -34,8 +34,8 @@ export const siteContent: Record<string, PageContent> = {
     type: "service",
     metadata: {
       canonical: "/services/web-development",
-      title: "Web Development Services | High-Performance Websites & Apps",
-      description: "Custom web development services to build fast, secure, and scalable websites using modern technologies.",
+      title: "Custom Web Development Services | FixyAds",
+      description: "Build fast, secure websites with our custom web development services, designed to deliver exceptional user experiences and long-term grow",
       keywords: ["web development", "website development", "frontend development", "backend development", "full stack development", "next.js development"],
     },
     hero: {
@@ -67,8 +67,8 @@ export const siteContent: Record<string, PageContent> = {
     type: "service",
     metadata: {
       canonical: "/services/social-media-marketing",
-      title: "Social Media Marketing Services | Grow Your Brand Online",
-      description: "Professional social media marketing services to increase brand awareness, engagement, and sales across Instagram, Facebook, LinkedIn, and more.",
+      title: "Social Media Marketing Services for Business Growth",
+      description: "Grow your brand with social media marketing services featuring strategic content, AI-powered videos, paid campaigns, and measurable results.",
       keywords: ["social media marketing", "SMM services", "instagram marketing", "facebook ads", "linkedin marketing", "brand growth"],
     },
     hero: {
@@ -119,13 +119,13 @@ export const siteContent: Record<string, PageContent> = {
       btnLink: "/contact",
     },
   },
-  "content-branding": {
-    id: "content-branding",
+  "content-marketing-services": {
+    id: "content-marketing-services",
     type: "service",
     metadata: {
-      canonical: "/services/content-branding",
-      title: "Content & Branding Services | Build a Powerful Brand Identity",
-      description: "Strategic content and branding services to create a strong brand voice, compelling visuals, and consistent messaging that connects with your audience.",
+      canonical: "/services/content-marketing-services",
+      title: "Content Marketing Services That Drive Engagement | FixyAds",
+      description: "Our content marketing services help you create valuable content that builds trust, attracts the right audience, increases engagement, and supports business growth.",
       keywords: ["content marketing", "branding services", "brand identity", "content strategy", "copywriting", "visual branding"],
     },
     hero: {
@@ -155,8 +155,8 @@ export const siteContent: Record<string, PageContent> = {
     type: "service",
     metadata: {
       canonical: "/services/influencer-marketing",
-      title: "Influencer Marketing Services | Build Trust & Drive Sales",
-      description: "Strategic influencer marketing campaigns to increase brand trust, reach the right audience, and drive real conversions.",
+      title: "Influencer Marketing Services for Brand Visibility",
+      description: "Connect with the right creators through our influencer marketing services to increase brand awareness, build trust, reach new audiences, and grow.",
       keywords: ["influencer marketing", "creator marketing", "brand collaborations", "instagram influencers", "youtube influencers"],
     },
     hero: {
@@ -188,8 +188,8 @@ export const siteContent: Record<string, PageContent> = {
     type: "course",
     metadata: {
       canonical: "/courses/digital-marketing",
-      title: "Digital Marketing Course | SEO, Ads, Social & Analytics | Fixyads",
-      description: "Master SEO, social media, paid media, and analytics with live projects, mentor feedback, and portfolio-ready outcomes.",
+      title: "Job-Ready Digital Marketing Course | FixyAds",
+      description: "Build practical digital marketing skills with expert-led training, live projects, certifications, and tools used by today's marketing professionals.",
       keywords: ["digital marketing course", "seo course", "social media marketing course", "google ads course"],
     },
     hero: {
@@ -222,8 +222,8 @@ export const siteContent: Record<string, PageContent> = {
     type: "course",
     metadata: {
       canonical: "/courses/web-development",
-      title: "Web Development Course | Full-Stack Training | Fixyads",
-      description: "Become a full-stack developer by building real websites and applications—from HTML and CSS through React, Next.js, APIs, and deployment.",
+      title: "Web Development Course with Practical Training | FixyAds",
+      description: "Learn HTML, CSS, JavaScript, React, PHP, and modern web development through hands-on training, live projects, and expert-led sessions",
       keywords: ["web development course", "frontend course", "backend course", "full stack course", "react course"],
     },
     hero: {
@@ -256,8 +256,8 @@ export const siteContent: Record<string, PageContent> = {
     type: "course",
     metadata: {
       canonical: "/courses/placement-support",
-      title: "Placement Support & Career Guidance | Fixyads",
-      description: "Structured placement support: resumes, portfolios, mock interviews, referrals, and mentorship so you are ready to interview with confidence.",
+      title: "Job Placement Support After Course Completion",
+      description: "Boost your career with placement support, interview coaching, resume reviews, portfolio guidance, and opportunities to connect with employers.",
       keywords: ["placement support", "resume building", "mock interviews", "hiring support"],
     },
     hero: {

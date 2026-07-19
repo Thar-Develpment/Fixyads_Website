@@ -10,6 +10,8 @@ import BlogPosts from '@/components/LandingPage/BlogPosts';
 import Newsletter from '@/components/LandingPage/Newsletter';
 
 export const metadata: Metadata = {
+  title: "Results-Driven Digital Marketing Agency | FixyAds",
+  description: "Prepare your business for the future with SEO, GEO, AEO, AI-powered marketing, PPC, content strategy, and lead generation from FixyAds.",
   alternates: { canonical: '/' },
 };
 

@@ -22,9 +22,9 @@ import styles from './page.module.css';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/services/social-media-marketing' },
-  title: 'Social Media Marketing Services | Build Your Brand Online | Fixyads',
+  title: 'Social Media Marketing Services for Business Growth',
   description:
-    'Professional social media marketing services to help businesses grow their online presence with strategic content, AI-powered videos, paid advertising, and performance-driven campaigns.',
+    'Grow your brand with social media marketing services featuring strategic content, AI-powered videos, paid campaigns, and measurable results.',
   keywords: [
     'social media marketing',
     'SMM services',
