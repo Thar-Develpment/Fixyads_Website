@@ -35,6 +35,14 @@ const courses = [
     skills: ["React & Next.js", "JavaScript ES6", "APIs & Databases", "Hosting & CI/CD"]
   },
   {
+    title: "UI/UX Design",
+    href: "/courses/ui-ux-design",
+    duration: "10 Weeks Program",
+    status: "Live Training",
+    body: "User research, wireframes, interactive prototypes, and modern interface design with Figma—built around portfolio-ready real-world projects.",
+    skills: ["User Research", "Wireframing", "Figma", "Prototypes"]
+  },
+  {
     title: "Placement Support",
     href: "/courses/placement-support",
     duration: "Lifetime Support",

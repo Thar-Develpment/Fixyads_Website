@@ -28,13 +28,13 @@ const CtaSection = () => {
 
           {/* Headline */}
           <h2 className={styles.title}>
-            Ready to Scale Your{' '}
-            <span className={styles.titleAccent}>Digital Growth?</span>
+            Your Growth Starts with the{' '}
+            <span className={styles.titleAccent}>Right Team</span>
           </h2>
 
           {/* Subtext */}
           <p className={styles.subtitle}>
-            Grow your business with digital marketing services designed to attract the right audience, generate quality leads, and maximize ROI.
+            Every successful business begins with a clear plan. Let's build a digital marketing strategy that helps you attract the right customers, strengthen your online presence, and create lasting business growth.
           </p>
 
           {/* CTA Buttons */}

@@ -8,7 +8,7 @@ import styles from './Services.module.css';
 const serviceData = [
   {
     title: 'Search Engine Optimization',
-    description: 'Capture high-intent organic traffic with precision keyword strategy, technical excellence, and content that earns authority.',
+    description: 'Our AI-powered Search Engine Optimization (SEO) services combine technical SEO, on-page SEO, keyword research, search intent analysis, content optimization, local SEO, link building, and SEO audits to improve search visibility, increase organic traffic, strengthen website authority, and generate high-quality leads.',
     IconEl: Search,
     accent: '#60a5fa',
     glow: 'rgba(96,165,250,0.18)',
@@ -16,7 +16,7 @@ const serviceData = [
   },
   {
     title: 'Social Media Marketing',
-    description: 'Build an engaged community with platform-native formats, viral content frameworks, and paid social that converts.',
+    description: 'Build meaningful connections with your target audience through social media marketing. We create engaging campaigns that improve brand visibility, increase customer engagement, drive qualified website traffic, and generate high-quality leads to support long-term business growth.',
     IconEl: Share2,
     accent: '#34d399',
     glow: 'rgba(52,211,153,0.18)',
@@ -24,7 +24,7 @@ const serviceData = [
   },
   {
     title: 'Content Marketing Services',
-    description: 'Create content that answers real questions, builds trust, and turns visitors into brand advocates.',
+    description: 'Turn ideas into valuable content that helps your audience discover, understand, and trust your business. We create engaging website content, blogs, landing pages, and marketing copy that attracts potential customers, improves user experience, and increases customer enquiries.',
     IconEl: Palette,
     accent: '#f59e0b',
     glow: 'rgba(245,158,11,0.18)',
@@ -32,7 +32,7 @@ const serviceData = [
   },
   {
     title: 'Influencer Marketing',
-    description: 'Connect with influencers who align naturally with your values — authentic collaborations that build lasting credibility.',
+    description: 'Collaborate with trusted influencers who genuinely represent your brand. Increase brand visibility, build customer trust, expand your market reach, and turn authentic recommendations into qualified leads and sales.',
     IconEl: TrendingUp,
     accent: '#c084fc',
     glow: 'rgba(192,132,252,0.18)',
@@ -40,7 +40,7 @@ const serviceData = [
   },
   {
     title: 'Email Marketing',
-    description: 'Segmented, personalized campaigns that nurture leads into high-lifetime-value loyal clients.',
+    description: 'Build stronger customer relationships with personalized email campaigns. Share relevant updates, nurture potential customers, encourage repeat purchases, and improve customer retention through timely communication.',
     IconEl: Mail,
     accent: '#fb923c',
     glow: 'rgba(251,146,60,0.18)',
@@ -48,7 +48,7 @@ const serviceData = [
   },
   {
     title: 'Website Development',
-    description: 'Fast, intuitive, conversion-optimised websites built with SEO and usability baked in from day one.',
+    description: 'Create a fast, responsive, and user-friendly website that reflects your brand. Improve website performance, deliver a better user experience, and convert more visitors into enquiries, leads, and customers.',
     IconEl: Code,
     accent: '#2dd4bf',
     glow: 'rgba(45,212,191,0.18)',
@@ -78,12 +78,12 @@ const Services = () => {
               What We Do
             </span>
             <h2 className={styles.title}>
-              Scale Your Online Presence with
-              <span className={styles.titleAccent}> Military Grade Digital </span>
+              Scale Your Online Presence with{' '}
+              <span className={styles.titleAccent}>Military Grade Digital</span>{' '}
               Marketing Services
             </h2>
             <p className={styles.subtitle}>
-              As a results-focused digital marketing company, we deliver end-to-end digital marketing solutions designed to help businesses improve conversion rates, and achieve consistent revenue growth across competitive markets.
+              We help startups, SMEs, and enterprises build a stronger digital presence, increase organic and paid traffic, improve lead quality, boost conversion rates, and achieve long-term business growth through digital marketing services.
             </p>
           </div>
           <div className={styles.headerRight}>

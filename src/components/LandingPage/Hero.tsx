@@ -49,9 +49,11 @@ const Hero = () => {
 
             <div className={styles.descWrapper}>
               <p className={styles.description}>
-                We are the best digital marketing company providing 
-                affordable services to boost online visibility, generate 
-                high-quality leads, and increase revenue.
+                We help businesses improve online visibility, 
+                increase organic and paid traffic, generate qualified leads, 
+                and maximize ROI through AI-powered SEO, Google Ads 
+                management, content marketing, social media marketing, 
+                and conversion optimization.
               </p>
             </div>
 

@@ -8,18 +8,18 @@ import styles from './HowWeWorkSection.module.css';
 const steps = [
   {
     num: '01',
-    title: 'Understand',
-    body: 'We begin with a deep exploration of your business objectives, audience behavior, market dynamics, and existing digital gaps. This research-led approach gives us a strategic understanding of your opportunities and challenges.',
+    title: 'Discover & Analyze',
+    body: 'Every successful strategy starts with a clear understanding of your business. We evaluate your industry, competitors, customer journey, digital presence, and market opportunities to identify the best path for improving online visibility and attracting potential customers',
   },
   {
     num: '02',
-    title: 'Strategize',
-    body: 'Our focus is to craft a clear and purposeful roadmap for sustainable digital growth. Based on these insights, we design a digital marketing plan aligned with your brand vision and commercial goals.',
+    title: 'Plan & Execute',
+    body: 'Using these insights, we develop a customized digital marketing strategy aligned with your business objectives. We select the right channels, create targeted campaigns, and deliver meaningful customer experiences that increase engagement, qualified leads, and conversions.',
   },
   {
     num: '03',
-    title: 'Deliver Results',
-    body: 'We bring the strategy to life through precise execution and continuous performance tracking. Every action is refined to maximize impact and deliver measurable, long-term results.',
+    title: 'Measure & Optimize',
+    body: 'Digital marketing is an ongoing process. We continuously monitor campaign performance, analyze customer behaviour, and refine strategies to improve marketing efficiency, strengthen your online presence, and support long-term business growth.',
   },
 ];
 
@@ -38,11 +38,10 @@ const HowWeWorkSection = () => {
         {/* Restructured Template Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <span className={styles.eyebrow}>{"// Our Process"}</span>
+            {/* <span className={styles.eyebrow}>{"// Our Process"}</span> */}
             <h2 className={styles.title}>How We Work</h2>
             <p className={styles.subtitle}>
-              A clear, repeatable process that turns your business goals into digital marketing results — 
-              every single time.
+              Every business is different, and so is its path to growth. Our structured digital marketing process combines market insights, customer understanding, and continuous optimization to build meaningful online experiences that strengthen your brand, attract potential customers, and support long-term business success. 
             </p>
           </div>
           <div className={styles.headerRight}>

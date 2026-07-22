@@ -76,11 +76,11 @@ const BlogPosts = async () => {
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>{"// Resources & Insights"}</span>
             <h2 className={styles.title}>
-              Stay Ahead with<br />
-              <span className={styles.titleAccent}>Expert Insights</span>
+              Knowledge That Creates <br />
+              <span className={styles.titleAccent}>New Opportunities</span>
             </h2>
             <p className={styles.subtitle}>
-              Actionable digital marketing strategies, SEO playbooks, and growth frameworks — straight from our team of experts.
+              Explore practical articles, expert perspectives, and real-world ideas that help you stay informed, solve business challenges, and make confident decisions every step of the way.
             </p>
           </div>
           <div className={styles.headerRight}>

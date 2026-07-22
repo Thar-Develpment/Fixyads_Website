@@ -27,7 +27,7 @@ const Partners = () => {
   return (
     <section className={styles.partners}>
       <div className={styles.container}>
-        <p className={styles.label}>Trusted by Our Clients</p>
+        <h3 className={styles.label}>Trusted by Our Clients</h3>
         <div className={styles.marquee}>
           <div className={styles.track}>
             {logoSet}

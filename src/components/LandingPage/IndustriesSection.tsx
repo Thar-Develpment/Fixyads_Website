@@ -48,12 +48,12 @@ const IndustriesSection = () => {
               drive measurable growth across every industry vertical.
             </p>
           </div>
-          <div className={styles.headerRight}>
+          {/* <div className={styles.headerRight}>
             <a href="/contact" className={styles.uniqueBtn}>
               <span>Talk to an Expert</span>
               <FaArrowRight className={styles.btnArrow} />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Pills */}

@@ -8,7 +8,10 @@ const Footer = () => {
             <div className={styles.footerContainer}>
                 <div className={styles.column}>
                     <Image src="/Logo/Newlogo.png" alt="Fixyads Logo" width={180} height={53} style={{ objectFit: 'contain' }} />
-                    <p>Transforming businesses with data-driven digital marketing strategies and empowering the next generation with expert training.</p>
+                    <p>
+                        <br></br>
+                        FixyAds helps businesses build a stronger digital presence with digital marketing, website and branding solutions that support long-term growth. Alongside our business services, we offer practical Digital Marketing, Web Development, and UI/UX Design courses designed to develop industry-ready skills and career opportunities.
+                    </p>
                 </div>
 
                 <div className={styles.column}>

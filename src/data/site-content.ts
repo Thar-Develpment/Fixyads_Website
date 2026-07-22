@@ -283,6 +283,38 @@ export const siteContent: Record<string, PageContent> = {
       btnLink: "/contact",
     },
   },
+  "ui-ux-design-course": {
+    id: "ui-ux-design-course",
+    type: "course",
+    metadata: {
+      canonical: "/courses/ui-ux-design",
+      title: "UI/UX Design Course with Practical Figma Training | FixyAds",
+      description: "Master user research, wireframing, interactive prototyping, and modern interface design with Figma. Create portfolio-ready projects for real-world applications.",
+      keywords: ["ui ux design course", "figma course", "user research", "wireframing", "prototyping", "ux design"],
+    },
+    hero: {
+      title: "UI/UX Design Course",
+      subtitle: "Master the complete UI/UX design process, from user research and wireframes to interactive prototypes and modern interface design.",
+      ctaText: "Start Designing",
+      ctaLink: "/contact",
+    },
+    curriculum: {
+      title: "What You’ll Learn",
+      items: [
+        "User Research & UX Process",
+        "Wireframing & Interactive Prototypes",
+        "Figma & UI Design",
+        "Design Systems & Usability Testing",
+        "Portfolio Projects for Real-World Apps",
+      ],
+    },
+    cta: {
+      title: "Ready to Become a UI/UX Designer?",
+      subtitle: "Join our UI/UX Design Course today and build a job-ready design portfolio.",
+      btnText: "Contact us",
+      btnLink: "/contact",
+    },
+  },
 };
 
 export function generateSiteMetadata(id: string) {

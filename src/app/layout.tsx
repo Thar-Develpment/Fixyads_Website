@@ -33,6 +33,13 @@ export const metadata: Metadata = {
   title: "Digital Marketing Agency & Training Institute",
   description:
     "Expert digital marketing services and professional training courses in Digital Marketing and Java.",
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 
   verification: {
     google: "vmOOhhRZqulR4Ly_eNqZb1g1E_DkEzX836Q-NDP64oA",
