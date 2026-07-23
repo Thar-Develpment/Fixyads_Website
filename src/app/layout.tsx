@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Sans, Space_Mono } from "next/font/google";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
-import FloatingQuote from "@/components/FloatingQuote/FloatingQuote";
-import TawkTo from "@/components/TawkTo/TawkTo";
-import CubeWidget from "@/components/Cubewidget/Cubewidget";
+import MarketingLayoutWrapper from "@/components/layout/MarketingLayoutWrapper";
 import "./globals.css";
 import Script from "next/script";
 import { Providers } from "@/components/Providers";
@@ -111,20 +107,9 @@ export default function RootLayout({
             })}
           </Script>
 
-          <Navbar />
-          <main
-            style={{
-              minHeight: "calc(100vh - 400px)",
-              backgroundColor: "#ffffff",
-            }}
-          >
+          <MarketingLayoutWrapper>
             {children}
-            <FloatingQuote />
-          </main>
-          <Footer />
-
-          <CubeWidget />
-          <TawkTo />
+          </MarketingLayoutWrapper>
         </Providers>
       </body>
     </html>
