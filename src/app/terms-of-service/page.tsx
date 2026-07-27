@@ -3,6 +3,7 @@ import styles from '../privacy-policy/Legal.module.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Terms of Service | Fixyads',
   alternates: { canonical: '/terms-of-service' },
 };
 
