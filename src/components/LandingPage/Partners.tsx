@@ -5,7 +5,7 @@ const clients = [
   { name: 'Tahrshop', logo: '/Clients/Tahrshop.png' },
   { name: 'Nexvyon', logo: '/Clients/Nexvyon.png' },
   { name: 'Symphony Bali Spa', logo: '/Clients/logo.png' },
-  { name: 'Koothan', logo: '/Clients/koothan.png' },
+  // { name: 'Koothan', logo: '/Clients/koothan.png' },
   { name: 'Surabi', logo: '/Clients/Surabi.png' },
   { name: 'feature Tech', logo: '/Clients/featurelogo.png' },
 ];
